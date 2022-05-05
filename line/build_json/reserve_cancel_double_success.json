@@ -1,0 +1,9 @@
+{
+    "type": "bubble",
+    "size": "micro",
+    "hero": {
+      "type": "image",
+      "url": "https://i.ibb.co/2FPnH6b/649900.jpg",
+      "size": "full"
+    }
+}

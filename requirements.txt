@@ -1,0 +1,6 @@
+psycopg2
+python-dateutil
+folium
+#https://stackoverflow.com/questions/44617159/python-3-6-module-cannot-be-found-folium
+branca
+schedule

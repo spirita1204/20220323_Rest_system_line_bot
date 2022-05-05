@@ -1,0 +1,67 @@
+{
+    "type": "bubble",
+    "size": "kilo",
+    "hero": {
+      "type": "image",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "uri": "http://linecorp.com/"
+      },
+      "url": "https://img.ltn.com.tw/Upload/food/page/2019/11/24/191124-9898-0-RxBFO.png"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "餐餐優惠-午餐",
+          "weight": "bold",
+          "size": "lg"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "有效期限 : 2023/12/01",
+                  "color": "#aaaaaa",
+                  "size": "sm",
+                  "flex": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "button",
+          "style": "link",
+          "height": "sm",
+          "action": {
+            "type": "uri",
+            "label": "立即確認",
+            "uri": "https://lin.ee/VIdsMvj"
+          }
+        }
+      ],
+      "flex": 0
+    }
+  }

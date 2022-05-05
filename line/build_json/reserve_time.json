@@ -1,0 +1,15 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://i.ibb.co/Jz4WZHx/reserve-time.jpg",
+    "size": "full",
+    "action": {
+      "type": "datetimepicker",
+      "label": "Setting",
+      "data": "datetime",
+      "mode": "datetime"
+    }
+  },
+  "size": "micro"
+}

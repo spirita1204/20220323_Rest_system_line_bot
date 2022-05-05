@@ -1,0 +1,58 @@
+{
+    "items": [
+        {
+            "type": "action",
+            "imageUrl": "https://i.ibb.co/xs4S1L0/1.png",
+            "action": {
+                "type": "message",
+                "label": "訂位",
+                "text": "@我要訂位"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://i.ibb.co/NV00kZ0/1.png",
+            "action": {
+                "type": "message",
+                "label": "查詢",
+                "text": "@我要查詢"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://i.ibb.co/Y2hxTGG/1.png",
+            "action": {
+                "type": "message",
+                "label": "取消",
+                "text": "@我要取消"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://i.ibb.co/8BHP14N/1.png",
+            "action": {
+                "type": "message",
+                "label": "餐廳資訊",
+                "text": "@我要看餐廳"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://i.ibb.co/fd37YZH/1.png",
+            "action": {
+                "type": "uri",
+                "label": "邀請好友",
+                "uri": "line://nv/recommendOA/@423lefgn"
+            }
+        },
+        {
+            "type": "action",
+            "imageUrl": "https://i.ibb.co/4wqdSVc/1.png",
+            "action": {
+                "type": "uri",
+                "label": "集點卡",
+                "uri": "https://liff.line.me/1654883656-XqwKRkd4?aid=423lefgn&utm_source=LINE&utm_medium=ClientOA&utm_campaign=Richmenu"
+            }
+        }
+    ]
+}
