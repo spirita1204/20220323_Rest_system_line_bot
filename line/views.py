@@ -28,7 +28,7 @@ from linebot.models import(
     FlexSendMessage,
     StickerSendMessage,
     TextMessage,
-    PostbackEvent,
+    PostbackEvent,FollowEvent,
     TemplateSendMessage, MessageTemplateAction, PostbackTemplateAction, ConfirmTemplate,
     QuickReply, QuickReplyButton, MessageAction, URIAction,
     ImagemapSendMessage, URIImagemapAction, MessageImagemapAction, Video, BaseSize, ImagemapArea, ExternalLink)
@@ -67,7 +67,7 @@ web_hook_handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 
 @csrf_exempt
 @require_POST
-# 接收訊息body
+# 接收訊息本體
 def callback(request):
     try:
         # Signature
@@ -79,7 +79,7 @@ def callback(request):
         print(e.error.message)
     return HttpResponse("Success.")
 
-# #處理linebot MessageEvent 事件
+# 處理linebot MessageEvent 事件
 @web_hook_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
@@ -735,6 +735,12 @@ def reserve_web_show(request, id):
     except reserve_inform.DoesNotExist:
         print("DoesNotExist")
         return render(request, "line/reserve404.html")
+
+# 處理linebot FollowEvent 事件
+@web_hook_handler.add(FollowEvent)
+def handle_follow_message(event):
+    #用戶新加入bot,推送同意條款資訊,和新手指引相關
+    pass
 
 def handle_similar_message(event):
     pass
