@@ -1,7 +1,5 @@
-from ast import Pass, Try
 from pprint import pprint
 from telnetlib import STATUS
-from xmlrpc.client import DateTime
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -81,7 +79,7 @@ def callback(request):
         print(e.error.message)
     return HttpResponse("Success.")
 
-# 回傳text message
+# #處理linebot MessageEvent 事件
 @web_hook_handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
@@ -479,7 +477,7 @@ def handle_message(event):
     except LineBotApiError as e:
         print(str(e))
 
-
+#處理linebot PostbackEvent 事件
 @web_hook_handler.add(PostbackEvent)
 def handle_postback_message(event):
     try:
@@ -700,6 +698,7 @@ def handle_postback_message(event):
     except LineBotApiError as e:
         print(str(e))
 
+#網頁訂位資訊頁面
 def reserve_web_show(request, id):
     try:
         reserveInforms = reserve_inform.objects.get(reserve_userId=id)
