@@ -1,0 +1,238 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "2:3",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "群組使用功能，請使用「@」",
+                    "size": "md",
+                    "color": "#ffffff",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://i.ibb.co/thrzrcp/blue.png",
+                        "size": "xxl",
+                        "offsetTop": "md"
+                      },
+                      {
+                        "type": "text",
+                        "text": "@我要查詢、@我要取消",
+                        "color": "#ffffff",
+                        "size": "md",
+                        "weight": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " empty",
+                    "color": "#282827"
+                  }
+                ]
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "message",
+                  "label": "馬上試試:「@我要訂位」",
+                  "text": "@我要訂位"
+                },
+                "style": "primary",
+                "color": "#00bcd4"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "paddingAll": "20px",
+            "paddingTop": "18px",
+            "backgroundColor": "#282827"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip2.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "2:3",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "第一手活動和資訊，敬請隨時留意!",
+                    "size": "md",
+                    "color": "#ffffff",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://i.ibb.co/3YvVhKd/red.png",
+                        "size": "xxl",
+                        "offsetTop": "md"
+                      },
+                      {
+                        "type": "text",
+                        "text": "優惠卷、官網資訊",
+                        "size": "md",
+                        "color": "#ffffff",
+                        "weight": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " empty",
+                    "color": "#282827"
+                  }
+                ]
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "message",
+                  "label": "馬上試試:「@我要看餐廳」",
+                  "text": "@我要看餐廳"
+                },
+                "style": "primary",
+                "color": "#ff4081"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "backgroundColor": "#282827",
+            "paddingAll": "20px",
+            "paddingTop": "18px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "2:3",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "相關問題諮詢",
+                    "size": "md",
+                    "color": "#ffffff",
+                    "weight": "bold"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://i.ibb.co/thrzrcp/blue.png",
+                        "size": "xxl",
+                        "offsetTop": "md"
+                      },
+                      {
+                        "type": "text",
+                        "text": "客服會在上班時間盡快回覆",
+                        "color": "#ffffff",
+                        "weight": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " empty",
+                    "color": "#282827"
+                  }
+                ]
+              },
+              {
+                "type": "button",
+                "style": "primary",
+                "color": "#00bcd4",
+                "action": {
+                  "type": "uri",
+                  "label": "聯繫LINE客服",
+                  "uri": "http://linecorp.com/"
+                }
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "backgroundColor": "#282827",
+            "paddingAll": "20px",
+            "paddingTop": "18px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}
