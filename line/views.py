@@ -28,7 +28,7 @@ from linebot.models import(
     FlexSendMessage,
     StickerSendMessage,
     TextMessage,
-    PostbackEvent,FollowEvent,
+    PostbackEvent, FollowEvent,
     TemplateSendMessage, MessageTemplateAction, PostbackTemplateAction, ConfirmTemplate,
     QuickReply, QuickReplyButton, MessageAction, URIAction,
     ImagemapSendMessage, URIImagemapAction, MessageImagemapAction, Video, BaseSize, ImagemapArea, ExternalLink)
@@ -106,6 +106,11 @@ def handle_message(event):
             reserve_search_status=Search_Status.STATUS_SEARCH_DEFAULT.value)
         reserve_cancel.objects.filter(reserve_cancel_userId=userId).update(
             reserve_cancel_status=Cancel_Status.STATUS_CANCEL_DEFAULT.value)
+        ################################################
+
+        if(message == "@同意條款並開始使用"):
+            # 跳出新手指引
+            guide(event)
 
         ################################################
 
@@ -477,7 +482,7 @@ def handle_message(event):
     except LineBotApiError as e:
         print(str(e))
 
-#處理linebot PostbackEvent 事件
+# 處理linebot PostbackEvent 事件
 @web_hook_handler.add(PostbackEvent)
 def handle_postback_message(event):
     try:
@@ -698,7 +703,9 @@ def handle_postback_message(event):
     except LineBotApiError as e:
         print(str(e))
 
-#網頁訂位資訊頁面
+# 網頁訂位資訊頁面
+
+
 def reserve_web_show(request, id):
     try:
         reserveInforms = reserve_inform.objects.get(reserve_userId=id)
@@ -739,8 +746,27 @@ def reserve_web_show(request, id):
 # 處理linebot FollowEvent 事件
 @web_hook_handler.add(FollowEvent)
 def handle_follow_message(event):
-    #用戶新加入bot,推送同意條款資訊,和新手指引相關
-    pass
+    # 用戶新加入bot,推送同意條款資訊,和新手指引相關
+    line_bot_api.reply_message(
+        event.reply_token,
+        [FlexSendMessage(
+            alt_text='使用授權',
+            contents=json.load(
+                open('line/build_json/follow_rule.json', 'r', encoding='utf-8'))
+        )]
+    )
+
 
 def handle_similar_message(event):
     pass
+
+# 新手指引:基礎功能
+def guide(event):
+    line_bot_api.reply_message(  
+        event.reply_token,
+        [FlexSendMessage(
+            alt_text='系統指引',
+            contents=json.load(
+                open('line/build_json/guide.json', 'r', encoding='utf-8'))
+        )]
+    )

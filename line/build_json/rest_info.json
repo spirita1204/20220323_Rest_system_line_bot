@@ -78,14 +78,15 @@
                 "spacing": "sm",
                 "borderColor": "#ffffff",
                 "margin": "xxl",
-                "height": "40px"
+                "height": "40px",
+                "backgroundColor": "#00bcd4"
               }
             ],
             "position": "absolute",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
-            "backgroundColor": "#DCB5FFcc",
+            "backgroundColor": "#282827",
             "paddingAll": "20px",
             "paddingTop": "18px"
           }
@@ -170,14 +171,15 @@
                 "spacing": "sm",
                 "borderColor": "#ffffff",
                 "margin": "xxl",
-                "height": "40px"
+                "height": "40px",
+                "backgroundColor": "#ff4081"
               }
             ],
             "position": "absolute",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
-            "backgroundColor": "#DCB5FFcc",
+            "backgroundColor": "#282827",
             "paddingAll": "20px",
             "paddingTop": "18px"
           }
@@ -262,14 +264,15 @@
                 "spacing": "sm",
                 "borderColor": "#ffffff",
                 "margin": "xxl",
-                "height": "40px"
+                "height": "40px",
+                "backgroundColor": "#00bcd4"
               }
             ],
             "position": "absolute",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
-            "backgroundColor": "#DCB5FFcc",
+            "backgroundColor": "#282827",
             "paddingAll": "20px",
             "paddingTop": "18px"
           }
@@ -355,14 +358,15 @@
                 "spacing": "sm",
                 "borderColor": "#ffffff",
                 "margin": "xxl",
-                "height": "40px"
+                "height": "40px",
+                "backgroundColor": "#ff4081"
               }
             ],
             "position": "absolute",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
-            "backgroundColor": "#DCB5FFcc",
+            "backgroundColor": "#282827",
             "paddingAll": "20px",
             "paddingTop": "18px"
           }
