@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Welcome!">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>訂位系統後台</title>
+    <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/訂位系統後台.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js' %}" defer=""></script>
+
+
+    <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Site198881",
+		"logo": "{% static 'image/lohoweb.png' %}"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="訂位系統後台">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="u-body u-xl-mode">
+    <header class="u-clearfix u-header u-white u-header" id="sec-9781">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <a href="Home.html" data-page-id="361808378" class="u-image u-logo u-image-1" data-image-width="450"
+                data-image-height="126" title="Home">
+                <img src="{% static 'image/lohoweb.png' %}" class="u-logo-image u-logo-image-1">
+            </a>
+        </div>
+    </header>
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1">
+            <table class="u-table-entity u-table-entity-1">
+                <colgroup>
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                </colgroup>
+                <thead class="u-grey-50 u-table-header u-table-header-1">
+                    <tr style="height: 47px;">
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Reserve Name</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Reserve Email</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Reserve Datetime</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">Reserve UserId</th>
+                        <th class="u-border-1 u-border-grey-50 u-table-cell">RUD</th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-body">
+                    {% for reserve_detail in reserve_details %}
+                    {% if reserve_detail.reserve_name_confirm != "" and reserve_detail.reserve_email_confirm != "" %}
+                    <tr style="height: 50px;">
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                            {{reserve_detail.reserve_name_confirm}}
+                        </td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                            {{reserve_detail.reserve_email_confirm}}
+                        </td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                            {{reserve_detail.reserve_datetime_confirm}}
+                        </td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                            <!--使其長度不超過15,顯示-->
+                            {{reserve_detail.reserve_userId|truncatechars:15}}
+                        </td>
+                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
+                            <button type="submit" class="btn btn-outline-info">Update</button>
+
+                            <form onSubmit="return confirm('Are you sure you wish to delete?');" method="POST"
+                                style="float:left;" action="{% url 'delete' reserve_detail.pk %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            </form>
+
+                        </td>
+
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
