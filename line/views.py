@@ -170,7 +170,7 @@ def handle_message(event):
                  TextSendMessage(text="開始取消~"),
                  TextSendMessage(text="請問您的姓名?")]
             )
-        elif(cancelStatus == "取消_姓名_完成" and message != "@是"and message != "@否"and message != "@我要看餐廳"):
+        elif(cancelStatus == "取消_姓名_完成" and message != "@是"and message != "@否"and message != "@我要看餐廳"and message != "@我要查詢"):
             reserve_cancel.objects.filter(reserve_cancel_userId=userId).update(
                 reserve_cancel_name=message, reserve_cancel_status=Cancel_Status.STATUS_CANCEL_EMAIL_PROCESS.value)
             line_bot_api.reply_message(
@@ -256,7 +256,7 @@ def handle_message(event):
                  TextSendMessage(text="請問您的姓名?")]
             )
 
-        elif(searchStatus == "搜尋_姓名_完成"):
+        elif(searchStatus == "搜尋_姓名_完成")and message != "@我要看餐廳":
             reserve_search.objects.filter(reserve_search_userId=userId).update(
                 reserve_search_name=message, reserve_search_status=Search_Status.STATUS_SEARCH_EMAIL_PROCESS.value)
             line_bot_api.reply_message(
@@ -264,7 +264,7 @@ def handle_message(event):
                 [StickerSendMessage(6362, 11087931),
                  TextSendMessage(text="請問您的Email???")]
             )
-        elif searchStatus == "搜尋_信箱_處理" and message != "@我要訂位" and message != "@我要取消" and message != "@是"and message != "@否":
+        elif searchStatus == "搜尋_信箱_處理" and message != "@我要訂位" and message != "@我要取消" and message != "@是"and message != "@否"and message != "@我要看餐廳":
             if email_identity(message) == True:
                 reserve_search.objects.filter(reserve_search_userId=userId).update(
                     reserve_search_email=message, reserve_search_status=Search_Status.STATUS_SEARCH_EMAIL_DONE.value)
