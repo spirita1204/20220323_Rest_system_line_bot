@@ -1,0 +1,23 @@
+
+
+.form-group span{
+    bottom: 12px;
+    right: 17px;
+    font-size: 14px;
+    color: rgb(23, 103, 232);
+    
+}
+
+#submit-error{
+    font-size: 14px;
+    color: red;
+} 
+
+.valid-feedback.feedback-icon,
+.invalid-feedback.feedback-icon {
+    position: absolute;
+    width: auto;
+    bottom: 10px;
+    right: 10px;
+    margin-top: 0;
+}
