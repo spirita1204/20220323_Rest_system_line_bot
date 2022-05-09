@@ -1,6 +1,6 @@
-psycopg2
-python-dateutil
-folium
+psycopg2==2.9.2
+python-dateutil==2.8.1
+folium==0.12.1.post1
 #https://stackoverflow.com/questions/44617159/python-3-6-module-cannot-be-found-folium
-branca
-schedule
+branca==0.4.2
+django==3.2.13
