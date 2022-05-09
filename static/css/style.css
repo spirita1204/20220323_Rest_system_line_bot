@@ -21,3 +21,6 @@
     right: 10px;
     margin-top: 0;
 }
+span:first-of-type {
+    flex: 1;
+  }
