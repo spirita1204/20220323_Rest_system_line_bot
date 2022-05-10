@@ -82,13 +82,20 @@
                             {{reserve_detail.reserve_userId|truncatechars:15}}
                         </td>
                         <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                            <button type="submit" class="btn btn-outline-info" data-toggle="modal"
-                                data-target="#exampleModal">修改</button>
 
-                            <form onSubmit="return confirm('Are you sure you wish to delete?');" method="POST"
-                                style="float:left;" action="{% url 'delete' reserve_detail.pk %}">
+                            <button type="submit" class="btn btn-outline-info" data-toggle="modal"
+                                data-target="#exampleModal"action="">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                修改
+                            </button>
+
+                            <form onSubmit="return confirm('確定要進行刪除嗎?');" method="POST" style="float:left;"
+                                action="{% url 'delete' reserve_detail.pk %}">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-outline-danger">刪除</button>
+                                <button type="submit" class="btn btn-outline-danger">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    刪除
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -108,33 +115,53 @@
                     <h3 class="modal-title">修改訂位資訊</h3>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <!--修改操作-->
+                    <form  action="" method="post">
+                        {% csrf_token %}
                         <div class="form-group position-relative ">
-                            <label for="name">姓名:</label>
-                            <input type="text" class="form-control is-valid" placeholder="dnaiel chen" name="name"
-                                id="name" onkeyup="validateName()">
+                            <!-- 
+                                <label for="name">姓名:</label>
+                                <input type="text" class="form-control is-valid" placeholder="dnaiel chen" name="name"
+                                id="name" onkeyup="validateName()"> 
+                            -->
+                            <label>{{ datetimeForm.reserve_name_confirm.label }}</label>
+                            {{ datetimeForm.reserve_name_confirm }}
                             <span id="name-error" class="valid-feedback feedback-icon"></span>
                         </div>
                         <div class="form-group position-relative">
-                            <label for="email">信箱:</label>
-                            <input type="email" class="form-control is-valid" placeholder="dnaiel@gmail.com"
-                                name="email" id="email" onkeyup="validateEmail()">
+                            <!-- 
+                                <label for="email">信箱:</label>
+                                <input type="email" class="form-control is-valid" placeholder="dnaiel@gmail.com"
+                                name="email" id="email" onkeyup="validateEmail()"> 
+                            -->
+                            <label>{{ datetimeForm.reserve_email_confirm.label }}</label>
+                            {{ datetimeForm.reserve_email_confirm }}
                             <span id="email-error" class="valid-feedback feedback-icon"></span>
                         </div>
+                        <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local-->
                         <div class="form-group position-relative ">
-                            <label for="datetime">時間:</label>
-
-                            <input type="datetime" class="form-control is-valid" name="datetime" id="datetime">
+                            <!--
+                                <label for="datetimePicker">時間:</label>
+                                <input type="datetime-local" class="form-control is-valid" id="datetimePicker"
+                                    name="datetimePicker"  max="2023-12-30T00:00">
+                            -->
+                            <label>{{ datetimeForm.reserve_datetime_confirm.label }}</label>
+                            {{ datetimeForm.reserve_datetime_confirm }}
                             <span id="datetime-error" class="valid-feedback feedback-icon"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <span id="submit-error" style="float:left;"></span>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                關閉
+                            </button>
+                            <button type="submit" class="btn btn-primary" onclick="return validateForm()">
+                                儲存修改
+                            </button>
                         </div>
                     </form>
                 </div>
 
-                <div class="modal-footer">
-                    <span id="submit-error"style="float:left;"></span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
-                    <button type="button" class="btn btn-primary" onclick="return validateForm()">儲存修改</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -143,6 +170,7 @@
         var emailError = document.getElementById('email-error');
         var datetimeError = document.getElementById('datetime-error');
         var submitError = document.getElementById('submit-error');
+        var now = new Date();
 
         function validateName() {
             var name = document.getElementById("name").value;
@@ -170,12 +198,25 @@
         function validateForm() {
             if (!validateName() || !validateEmail()) {
                 submitError.style.display = 'block';
-                submitError.innerHTML = "Please fix error to submit";
+                submitError.innerHTML = "請修正以上錯誤";
                 setTimeout(function () { submitError.style.display = 'none'; }, 3000);
                 return false;
             }
         }
     </script>
+    <script>
+        let dateInput = document.getElementById("datetimePicker");
+        var str = document.getElementById("datetimePicker").value;
+        //設定當前時間+1天為最小,即可不用作錯誤檢核(情境:當天修改時間只能改成+1天後)
+        let d = new Date();
+        d.setDate(d.getDate() + 1);
+        dateInput.min = d.toISOString().slice(0, 16);
+        //dateInput.min = new Date().toISOString().split(".")[0];
+        //jqery改變datetimepicker選當前時間(不設定)
+        //$("#datetimePicker").val(new Date().toJSON().slice(0, 16));
+        $("#datetimePicker").val(d.toISOString().slice(0, 16));
+    </script>
+
     <script src="{% static 'js/modal/jquery-slim.min.js' %}"></script>
     <script src="{% static 'js/modal/popper.min.js' %}"></script>
     <script src="{% static 'js/modal/util.js' %}"></script>
@@ -183,6 +224,7 @@
     <script src="{% static 'js/modal/collapse.js' %}"></script>
     <script src="{% static 'js/modal/tooltip.js' %}"></script>
     <script src="{% static 'js/modal/popover.js' %}"></script>
+
 
 </body>
 

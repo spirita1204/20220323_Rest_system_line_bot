@@ -5,14 +5,14 @@ import django.utils.timezone as timezone
 # Create your models here.
 class reserve_inform(models.Model):
     reserve_userId = models.TextField(default="",null=True, blank=True)
-    reserve_name =reserve_name = models.TextField(default="",null=True, blank=True)
+    reserve_name = models.TextField(default="",null=True, blank=True)
     reserve_email = models.TextField(default="",null=True, blank=True)
     reserve_status = models.TextField(default="初始狀態")
     reserve_datetime = models.DateTimeField('預訂日期',default = timezone.now)  
     
     reserve_name_confirm = models.TextField(default="",null=True, blank=True)
     reserve_email_confirm = models.TextField(default="",null=True, blank=True)
-    reserve_datetime_confirm = models.DateTimeField('預訂日期',default = timezone.now)  
+    reserve_datetime_confirm = models.DateTimeField('預訂日期確認',default = timezone.now)  
     
 
 class reserve_search(models.Model):
