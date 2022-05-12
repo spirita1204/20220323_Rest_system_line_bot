@@ -45,147 +45,154 @@
             </a>
         </div>
     </header>
-    
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        
-        
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
-            <button type="button" class="btn btn-outline-success"style="float:right;">
-                <i class="fa-solid fa-calendar-plus"></i>
-                新增
-            </button>
-            <br></br>
-            <table class="u-table-entity u-table-entity-1" id="table">
-                <colgroup>
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                    <col width="20%">
-                </colgroup>
-                <thead class="u-grey-50 u-table-header u-table-header-1">
-                    <tr style="height: 47px;">
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">訂位人姓名</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">信箱</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">時間</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">使用者ID</th>
-                        <th class="u-border-1 u-border-grey-50 u-table-cell">操作</th>
-                    </tr>
-                </thead>
-                <tbody class="u-table-body">
-                    {% for reserve_detail in reserve_details %}
-                    {% if reserve_detail.reserve_name_confirm != "" and reserve_detail.reserve_email_confirm != "" %}
-                    <tr style="height: 50px;">
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                            {{reserve_detail.reserve_name_confirm}}
-                        </td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                            {{reserve_detail.reserve_email_confirm}}
-                        </td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                            <!--|date:"SHORT_DATE_FORMAT"改變輸出format-->
-                            {{reserve_detail.reserve_datetime_confirm|date:"Y/m/d"}}
-                            {{reserve_detail.reserve_datetime_confirm|time:"H:i"}}
-                        </td>
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                            <!--使其長度不超過15,顯示-->
-                            {{reserve_detail.reserve_userId|truncatechars:15}}
-                        </td>
-                        <!--class 後綴editMe-->
-                        <!--定義target為pk讓其每一行不同值-->
-                        <!--https://stackoverflow.com/questions/50196148/pass-value-to-bootstrap-modal-form-with-django-->
-                        <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell editMe">
-                            <button type="button" class="btn btn-outline-info" data-toggle="modal"
-                                data-target="#{{reserve_detail.pk}}" onclick="">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                修改
-                            </button>
-                            <form onSubmit="return confirm('確定要進行刪除嗎?');" method="POST" style="float:left;"
-                                action="{% url 'delete' reserve_detail.pk %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-outline-danger">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                    刪除
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    <!--modal移到for loop 中 這樣才吃的到reserve_detail-->
-                    <div class="modal fade" id="{{reserve_detail.pk}}" tabindex="-1" role="dialog"
-                        aria-labelledby="firefoxModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h3 class="modal-title">修改訂位資訊</h3>
-                                </div>
-                                <div class="modal-body">
-                                    <p id="modal_body"></p>
-                                    <!--修改操作-->
-                                    <form action="{% url 'update' reserve_detail.pk %}" method="post">
-                                        {% csrf_token %}
-                                        {{reserve_detail.pk}}
-                                        <div class="form-group position-relative ">
-                                            <!-- 
-                                                <label for="name">姓名:</label>
-                                                <input type="text" class="form-control is-valid" placeholder="dnaiel chen" name="name"
-                                                id="name" onkeyup="validateName()"> 
-                                            -->
-                                            <label>{{ datetimeForm.reserve_name_confirm.label }}</label>
-                                            {{ datetimeForm.reserve_name_confirm }}
-                                            <span id="name-error_{{reserve_detail.pk}}"
-                                                class="valid-feedback feedback-icon"></span>
+            <div class="page">
+                <div class="page-body">
+                    <div class="container-xl">
+                        <div class="row row-cards">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table table-vcenter card-table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>訂位人姓名</th>
+                                                        <th>信箱</th>
+                                                        <th>時間</th>
+                                                        <th>使用者ID</th>
+                                                        <th class="w-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for reserve_detail in reserve_details %}
+                                                    {% if reserve_detail.reserve_name_confirm != "" and reserve_detail.reserve_email_confirm != "" %}
+                                                    <tr>
+                                                        <td>
+                                                            {{reserve_detail.reserve_name_confirm}}
+                                                        </td>
+                                                        <td class="text-muted">
+                                                            {{reserve_detail.reserve_email_confirm}}
+                                                        </td>
+                                                        <td class="text-muted">
+                                                            <!--|date:"SHORT_DATE_FORMAT"改變輸出format-->
+                                                            {{reserve_detail.reserve_datetime_confirm|date:"Y/m/d"}}
+                                                            {{reserve_detail.reserve_datetime_confirm|time:"H:i"}}
+                                                        </td>
+                                                        <td class="text-muted">
+                                                            <!--使其長度不超過15,顯示-->
+                                                            {{reserve_detail.reserve_userId|truncatechars:15}}
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-outline-info"
+                                                                data-toggle="modal" data-target="#{{reserve_detail.pk}}"
+                                                                onclick="">
+                                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                                修改
+                                                            </button>
+                                                            <form onSubmit="return confirm('確定要進行刪除嗎?');" method="POST"
+                                                                style="float:left;"
+                                                                action="{% url 'delete' reserve_detail.pk %}">
+                                                                {% csrf_token %}
+                                                                <button type="submit" class="btn btn-outline-danger">
+                                                                    <i class="fa-solid fa-trash-can"></i>
+                                                                    刪除
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                    <!--modal移到for loop 中 這樣才吃的到reserve_detail-->
+                                                    <div class="modal fade" id="{{reserve_detail.pk}}" tabindex="-1"
+                                                        role="dialog" aria-labelledby="firefoxModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="modal-title">修改訂位資訊</h3>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p id="modal_body"></p>
+                                                                    <!--修改操作-->
+                                                                    <form action="{% url 'update' reserve_detail.pk %}"
+                                                                        method="post">
+                                                                        {% csrf_token %}
+
+                                                                        <div class="form-group position-relative ">
+                                                                            <!-- 
+                                                                                    <label for="name">姓名:</label>
+                                                                                    <input type="text" class="form-control is-valid" placeholder="dnaiel chen" name="name"
+                                                                                    id="name" onkeyup="validateName()"> 
+                                                                                -->
+                                                                            <label>
+                                                                                {{datetimeForm.reserve_name_confirm.label}}
+                                                                            </label>
+                                                                            {{ datetimeForm.reserve_name_confirm }}
+                                                                            <span id="name-error_{{reserve_detail.pk}}"
+                                                                                class="valid-feedback feedback-icon"></span>
+                                                                        </div>
+                                                                        <div class="form-group position-relative">
+                                                                            <!-- 
+                                                                                    <label for="email">信箱:</label>
+                                                                                    <input type="email" class="form-control is-valid" placeholder="dnaiel@gmail.com"
+                                                                                    name="email" id="email" onkeyup="validateEmail()"> 
+                                                                                -->
+                                                                            <label>
+                                                                                {{datetimeForm.reserve_email_confirm.label}}
+                                                                            </label>
+                                                                            {{ datetimeForm.reserve_email_confirm }}
+                                                                            <span id="email-error"
+                                                                                class="valid-feedback feedback-icon"></span>
+                                                                        </div>
+                                                                        <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local-->
+                                                                        <div class="form-group position-relative ">
+                                                                            <!--
+                                                                                    <label for="datetimePicker">時間:</label>
+                                                                                    <input type="datetime-local" class="form-control is-valid" id="datetimePicker"
+                                                                                        name="datetimePicker"  max="2023-12-30T00:00">
+                                                                                -->
+
+                                                                            <label>
+                                                                                {{datetimeForm.reserve_datetime_confirm.label}}
+                                                                            </label>
+                                                                            {{ datetimeForm.reserve_datetime_confirm }}
+                                                                            <span id="datetime-error"
+                                                                                class="valid-feedback feedback-icon"></span>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <span id="submit-error"
+                                                                                style="float:left;"></span>
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">
+                                                                                關閉
+                                                                            </button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary"
+                                                                                onclick="return validateForm()">
+                                                                                儲存修改
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--modal 結束-->
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="form-group position-relative">
-                                            <!-- 
-                                                <label for="email">信箱:</label>
-                                                <input type="email" class="form-control is-valid" placeholder="dnaiel@gmail.com"
-                                                name="email" id="email" onkeyup="validateEmail()"> 
-                                            -->
-                                            <label>{{ datetimeForm.reserve_email_confirm.label }}</label>
-                                            {{ datetimeForm.reserve_email_confirm }}
-                                            <span id="email-error" class="valid-feedback feedback-icon"></span>
-                                        </div>
-                                        <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local-->
-                                        <div class="form-group position-relative ">
-                                            <!--
-                                                <label for="datetimePicker">時間:</label>
-                                                <input type="datetime-local" class="form-control is-valid" id="datetimePicker"
-                                                    name="datetimePicker"  max="2023-12-30T00:00">
-                                            -->
-                                            
-                                            <label>{{ datetimeForm.reserve_datetime_confirm.label }}</label>
-                                            {{ datetimeForm.reserve_datetime_confirm}}
-                                            <span id="datetime-error" class="valid-feedback feedback-icon"></span>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <span id="submit-error" style="float:left;"></span>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                關閉
-                                            </button>
-                                            <button type="submit" class="btn btn-primary"
-                                                onclick="return validateForm()">
-                                                儲存修改
-                                            </button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--modal 結束-->
-                    {% endif %}
-                    {% endfor %}
-
-                </tbody>
-            </table>
+                </div>
+            </div>
         </div>
     </div>
-
-
-    <script>
-    
-    </script>
-
     <script>
 
         /* $('.editMe').click(function () {
