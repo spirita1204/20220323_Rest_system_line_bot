@@ -1,5 +1,5 @@
  .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/base.png");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/static/image/base.png);
 }
 
 .u-section-1 .u-sheet-1 {
@@ -136,7 +136,7 @@
 
 .u-section-3 .u-image-1 {
   min-height: 405px;
-  background-image: url("images/pexels-marta-dzedyshko-2067396.jpg");
+  background-image: url(/static/image/pexels-marta-dzedyshko-2067396-15.jpg);
   background-position: 50% 50%;
 }
 
@@ -182,7 +182,7 @@
 
 .u-section-3 .u-image-2 {
   min-height: 405px;
-  background-image: url("images/pexels-photo-4099237.jpeg");
+  background-image: url(/static/image/pexels-photo-4099237.jpeg);
   background-position: 50% 50%;
 }
 
@@ -228,7 +228,7 @@
 
 .u-section-3 .u-image-3 {
   min-height: 405px;
-  background-image: url("images/pexels-photo-949069.jpeg");
+  background-image: url(/static/image/pexels-photo-949069.jpeg);
   background-position: 50% 50%;
 }
 
@@ -608,7 +608,7 @@
 }
 
  .u-section-5-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("images/pexels-photo-745988.jpeg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url(/static/image/pexels-photo-745988.jpeg);
 }
 
 .u-section-5-1 .u-sheet-1 {
@@ -665,7 +665,7 @@
 }
 
  .u-section-5-2 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/restaurant-love-romantic-dinner.jpg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/static/image/restaurant-love-romantic-dinner.jpg);
 }
 
 .u-section-5-2 .u-sheet-1 {
@@ -906,7 +906,7 @@
 
 .u-section-7 .u-image-1 {
   min-height: 707px;
-  background-image: url("images/restaurant-love-romantic-dinner-12.jpg");
+  background-image: url(/static/image/restaurant-love-romantic-dinner-14.jpg);
   background-position: 50% 50%;
 }
 
@@ -916,7 +916,7 @@
 
 .u-section-7 .u-image-2 {
   min-height: 351px;
-  background-image: url("images/pexels-photo-5491337.jpeg");
+  background-image: url(/static/image/pexels-photo-5491337.jpeg);
   background-position: 50% 63.78%;
 }
 
@@ -926,7 +926,7 @@
 
 .u-section-7 .u-image-3 {
   min-height: 356px;
-  background-image: url("images/pexels-photo-2762942.jpeg");
+  background-image: url(/static/image/pexels-photo-2762942.jpeg);
   background-position: 50% 50%;
 }
 
@@ -936,7 +936,7 @@
 
 .u-section-7 .u-image-4 {
   min-height: 356px;
-  background-image: url("images/pexels-marta-dzedyshko-2067396-15.jpg");
+  background-image: url(/static/image/pexels-marta-dzedyshko-2067396.jpg);
   background-position: 50% 50%;
 }
 
@@ -1293,69 +1293,5 @@
 
   .u-section-8 .u-group-1 {
     margin-left: 55px;
-  }
-}.u-section-9 .u-sheet-1 {
-  min-height: 500px;
-}
-
-.u-section-9 .u-text-1 {
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-weight: 300;
-  margin: 76px auto 0;
-}
-
-.u-section-9 .u-text-2 {
-  font-weight: 700;
-  font-size: 3rem;
-  margin: 20px auto 0;
-}
-
-.u-section-9 .u-form-1 {
-  height: 225px;
-  width: 570px;
-  margin: 30px auto 60px;
-}
-
-.u-section-9 .u-form-group-1 {
-  width: 100%;
-}
-
-.u-section-9 .u-form-group-2 {
-  width: 100%;
-}
-
-.u-section-9 .u-form-group-3 {
-  margin-left: 0;
-}
-
-.u-section-9 .u-form-group-4 {
-  width: 100%;
-}
-
-.u-section-9 .u-btn-1 {
-  border-style: solid;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-@media (max-width: 767px) {
-  .u-section-9 .u-form-1 {
-    width: 540px;
-  }
-}
-
-@media (max-width: 575px) {
-  .u-section-9 .u-text-2 {
-    font-size: 2.25rem;
-  }
-
-  .u-section-9 .u-form-1 {
-    width: 340px;
-  }
-
-  .u-section-9 .u-form-group-3 {
-    width: 100%;
   }
 }
