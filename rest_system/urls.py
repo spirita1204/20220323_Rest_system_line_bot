@@ -21,9 +21,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('callback', views.callback),
-    path('reserve/<str:id>',views.reserve_web_show),
-    path('cms/', include('cms.urls')),#CMS system
-    
+    path('admin/', admin.site.urls), #django後臺用
+    path('callback', views.callback),#Line bot用
+    path('reserve/<str:id>',views.reserve_web_show), #訂位連結用
+    path('cms/', include('cms.urls')),#CMS系統用
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

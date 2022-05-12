@@ -50,3 +50,6 @@ def update(request, pk):  # 修改資料 ,pk傳哪個
             form.save()
             print("form update!")
     return redirect('/cms/reserve_detail/')
+
+def home(request):
+    return render(request, "cms/home.html")
