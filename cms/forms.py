@@ -30,6 +30,7 @@ class DatetimeModelForm(forms.ModelForm):
                     'name'       :'name',
                     'placeholder':'dnaiel chen',
                     'onkeyup'    :'validateName()',
+                    'required'   :'required'
                 }
             ),
             'reserve_email_confirm':forms.EmailInput(
@@ -40,6 +41,7 @@ class DatetimeModelForm(forms.ModelForm):
                     'name'       :'email',
                     'placeholder':'dnaiel@gmail.com',
                     'onkeyup'    :'validateEmail()',
+                    'required'   :'required'
                 }
             ),
             'reserve_datetime_confirm': forms.DateTimeInput(
