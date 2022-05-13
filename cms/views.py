@@ -2,9 +2,15 @@ from django.shortcuts import render, redirect
 from line.models import reserve_inform, reserve_search
 from datetime import datetime
 from .forms import DatetimeModelForm
+# 登入用
+from django.contrib import auth
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import logout as django_logout
+from django.contrib.auth.decorators import login_required
+
 # 瀏覽訂位資訊
-
-
+# 當使用者未登入，而存取首頁的網址時，將使用者導向到登入畫面。
+@login_required(login_url="/cms/rest_system/")
 def reserve_detail(request):
     datetimeForm = DatetimeModelForm()
 
@@ -18,7 +24,7 @@ def reserve_detail(request):
     reserve_details = reserve_inform.objects.filter(
         reserve_datetime_confirm__gte=datetime.now())
     context = {
-        'dateTimeNow': datetime.now(),#比較用
+        'dateTimeNow': datetime.now(),  # 比較用
         'reserve_details': reserve_details,
         'datetimeForm': datetimeForm
     }
@@ -43,7 +49,7 @@ def update(request, pk):  # 修改資料 ,pk傳哪個
             form_name = form["reserve_name_confirm"].value()
             form_email = form["reserve_email_confirm"].value()
             form_datetime = form["reserve_datetime_confirm"].value()
-            #存入指定pk資料
+            # 存入指定pk資料
             form.reserve_name_confirm = form_name
             form.reserve_email_confirm = form_email
             form.reserve_datetime_confirm = form_datetime
@@ -51,5 +57,29 @@ def update(request, pk):  # 修改資料 ,pk傳哪個
             print("form update!")
     return redirect('/cms/reserve_detail/')
 
+
 def home(request):
     return render(request, "cms/home.html")
+
+
+def test(request):
+    return render(request, "test.html")
+
+
+def login(request):
+    if request.method == "POST":
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+        if user is not None and user.is_active:
+            auth.login(request, user)
+            return HttpResponseRedirect('/cms/reserve_detail/')
+        else:
+            return render(request, "cms/home.html")
+    else:
+        return render(request, "cms/home.html")
+
+
+def logout(request):
+    django_logout(request)
+    return redirect('/cms/rest_system/')  # 重新導向到登入畫面

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html style="font-size: 16px;">
+<!--ctrl+f5如果css有cache咬住-->
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,19 @@
         content="One Step to Making a Good Start, Events of Healthy Food, Exclusive&nbsp;restaurant in Paris, the ultimate way to get amazing food from the best chefs in the city.&nbsp;Great atmosphere included., Exclusive&nbsp;restaurant in Paris, the ultimate way to get amazing food from the best chefs in the city.&nbsp;Great atmosphere included., Delicious From The Chef, Get in touch">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Rest System home page</title>
+    <title>Rest System 首頁</title>
     <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/Home.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/登入.css' %}" media="screen">
     <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js' %}" defer=""></script>
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Bebas+Neue:400">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Smartsupp Live Chat script網頁端再用 -->
     <script type="text/javascript">
         var _smartsupp = _smartsupp || {};
@@ -34,26 +36,43 @@
         //make it auto open
         //smartsupp('chat:open');
     </script>
+
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "Site198881",
 		"logo": "{% static 'image/lohoweb.png' %}"
-    }
-    </script>
+}</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
+    <style type="text/css">
+        #div1 {
+            float: left;
+        }
+
+        #div2 {
+            float: right;
+        }
+    </style>
 </head>
 
 <body class="u-body u-xl-mode">
     <header class="u-clearfix u-header u-white u-header" id="sec-9781">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="" data-page-id="361808378" class="u-image u-logo u-image-1" data-image-width="450"
-                data-image-height="126" title="Home">
-                <img src="{% static 'image/lohoweb.png' %}" class="u-logo-image u-logo-image-1">
-            </a>
-            <a href="" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-3 u-palette-1-light-1 u-radius-12 u-text-white u-btn-1">登入</a>
+            <div id="div1">
+                <a href="" data-page-id="361808378" class="u-image u-logo u-image-1" data-image-width="450"
+                    data-image-height="126" title="Home">
+                    <img src="{% static 'image/lohoweb.png' %}" class="u-logo-image u-logo-image-1">
+                </a>
+            </div>
+            <div id="div2" style="top:12px">
+                <!-- Button HTML (to Trigger Modal) -->
+                <a href="#myModal" data-toggle="modal"
+                    class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-dark-3 u-palette-1-light-1 u-radius-12 u-text-white u-btn-1">
+                    登入
+                </a>
+            </div>
         </div>
     </header>
     <section class="skrollable u-align-center u-clearfix u-image u-parallax u-shading u-section-1" id="carousel_8e89"
@@ -62,13 +81,11 @@
             <h1 class="u-custom-font u-font-playfair-display u-text u-text-1">One Step to Making a Good Start</h1>
             <p class="u-text u-text-2">Mauris fermentum tortor non enim aliquet condimentum. Nam aliquam pretium
                 feugiat. Duis sem est, viverra eu interdum ac, suscipit nec mauris. Suspendisse commodo tempor sagittis!
-                In justo est, sollicitudin eu scelerisque pretium, placerat eget elit.
-            </p>
-            <span class="u-icon u-icon-circle u-text-white u-icon-1">
-                <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 490.677 490.677" style="">
+                In justo est, sollicitudin eu scelerisque pretium, placerat eget elit.</p><span
+                class="u-icon u-icon-circle u-text-white u-icon-1"><svg class="u-svg-link"
+                    preserveAspectRatio="xMidYMin slice" viewBox="0 0 490.677 490.677" style="">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cf97"></use>
-                </svg>
-                <svg class="u-svg-content" viewBox="0 0 490.677 490.677" x="0px" y="0px" id="svg-cf97"
+                </svg><svg class="u-svg-content" viewBox="0 0 490.677 490.677" x="0px" y="0px" id="svg-cf97"
                     style="enable-background:new 0 0 490.677 490.677;">
                     <g>
                         <g>
@@ -77,11 +94,10 @@
                             </path>
                         </g>
                     </g>
-                </svg>
-            </span>
+                </svg></span>
         </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-2" id="carousel_3004">
+    <section class="u-align-center u-clearfix u-palette-5-dark-3 u-section-2" id="carousel_3004">
         <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
             <h6 class="u-text u-text-default u-text-1">about our restaurant</h6>
             <h3 class="u-custom-font u-font-playfair-display u-text u-text-2">Exclusive <i><b>restaurant in
@@ -99,14 +115,14 @@
                             <div class="u-container-style u-image u-layout-cell u-left-cell u-size-20 u-image-1">
                                 <div class="u-container-layout u-container-layout-1"></div>
                             </div>
-                            <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                            <div class="u-container-style u-layout-cell u-palette-5-dark-3 u-size-20 u-layout-cell-2">
                                 <div class="u-container-layout u-valign-middle u-container-layout-2">
                                     <h6 class="u-align-center u-text u-text-default u-text-1">history</h6>
                                     <h3 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-2">
                                         Strange story of the emergence of healthy food</h3>
                                     <p class="u-align-center u-text u-text-default u-text-3">Sample text. Click to
                                         select the text box. Click again or double click to start editing the text.</p>
-                                    <a href="https://nicepage.com/k/hacker-website-templates"
+                                    <a href=""
                                         class="u-active-none u-border-2 u-border-black u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1">read
                                         more</a>
                                 </div>
@@ -118,14 +134,15 @@
                     </div>
                     <div class="u-size-30">
                         <div class="u-layout-row">
-                            <div class="u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-4">
+                            <div
+                                class="u-container-style u-layout-cell u-left-cell u-palette-5-dark-3 u-size-20 u-layout-cell-4">
                                 <div class="u-container-layout u-valign-middle u-container-layout-4">
                                     <h6 class="u-align-center u-text u-text-4">comunity</h6>
                                     <h3 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-5">
                                         Healthy food in social networks, with us interesting</h3>
                                     <p class="u-align-center u-text u-text-default u-text-6">Sample text. Click to
                                         select the text box. Click again or double click to start editing the text.</p>
-                                    <a href="https://nicepage.com/k/apple-website-templates"
+                                    <a href=""
                                         class="u-active-none u-border-2 u-border-black u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-2">read
                                         more</a>
                                 </div>
@@ -133,7 +150,8 @@
                             <div class="u-container-style u-image u-layout-cell u-size-20 u-image-3">
                                 <div class="u-container-layout u-container-layout-5"></div>
                             </div>
-                            <div class="u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-6">
+                            <div
+                                class="u-container-style u-layout-cell u-palette-5-dark-3 u-right-cell u-size-20 u-layout-cell-6">
                                 <div class="u-container-layout u-valign-middle u-container-layout-6">
                                     <h6 class="u-align-center u-text u-text-7">philosophy</h6>
                                     <h3
@@ -141,7 +159,7 @@
                                         Only the best food, the best musicians the best guests</h3>
                                     <p class="u-align-center u-text u-text-default u-text-9">Sample text. Click to
                                         select the text box. Click again or double click to start editing the text.</p>
-                                    <a href="https://nicepage.com/website-builder"
+                                    <a href=""
                                         class="u-active-none u-border-2 u-border-black u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-3">read
                                         more</a>
                                 </div>
@@ -152,7 +170,7 @@
             </div>
         </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-4" id="carousel_8cbc">
+    <section class="u-align-center u-clearfix u-palette-5-dark-3 u-section-4" id="carousel_8cbc">
         <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <h6 class="u-text u-text-default u-text-1">events</h6>
             <h2 class="u-custom-font u-font-playfair-display u-text u-text-default u-text-2">Events of Healthy Food</h2>
@@ -190,8 +208,8 @@
                     </div>
                 </div>
             </div>
-            <a href="https://nicepage.online"
-                class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">read
+            <a href=""
+                class="u-border-2 u-border-black u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-none u-radius-40 u-text-black u-text-hover-white u-btn-1">read
                 more</a>
         </div>
     </section>
@@ -259,7 +277,7 @@
             </span>
         </a>
     </section>
-    <section class="u-align-center u-clearfix u-section-6" id="carousel_2eda">
+    <section class="u-align-center u-clearfix u-palette-5-dark-3 u-section-6" id="carousel_2eda">
         <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
             <h6 class="u-text u-text-default u-text-1">our menu</h6>
             <h2 class="u-custom-font u-font-playfair-display u-text u-text-default u-text-2">Delicious From The Chef
@@ -351,14 +369,14 @@
             </div>
         </div>
     </section>
-    <section class="u-clearfix u-section-8" id="carousel_1145">
+    <section class="u-clearfix u-palette-5-dark-3 u-section-8" id="carousel_1145">
         <div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
             <div class="u-list u-list-1">
                 <div class="u-repeater u-repeater-1">
                     <div
                         class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-container-style u-list-item u-repeater-item">
-                        <div class="u-container-layout u-similar-container u-container-layout-1"><span
-                                class="u-icon u-icon-circle u-text-black u-icon-1"><svg class="u-svg-link"
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span
+                                class="u-icon u-icon-circle u-text-white u-icon-1"><svg class="u-svg-link"
                                     preserveAspectRatio="xMidYMin slice" viewBox="0 0 511.995 511.995" style="">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-acab"></use>
                                 </svg><svg class="u-svg-content" viewBox="0 0 511.995 511.995" x="0px" y="0px"
@@ -428,8 +446,8 @@
                     </div>
                     <div
                         class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-list-item u-repeater-item">
-                        <div class="u-container-layout u-similar-container u-container-layout-2"><span
-                                class="u-icon u-icon-circle u-text-black u-icon-2"><svg class="u-svg-link"
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><span
+                                class="u-icon u-icon-circle u-text-white u-icon-2"><svg class="u-svg-link"
                                     preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style="">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-f91d"></use>
                                 </svg><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-f91d"
@@ -526,15 +544,15 @@
                                         </g>
                                     </g>
                                 </svg></span>
-                            <h3 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-text-3"
+                            <h3 class="u-custom-font u-font-playfair-display u-text u-text-default u-text-3"
                                 data-animation-name="counter" data-animation-event="scroll"
                                 data-animation-duration="3000">900</h3>
-                            <h6 class="u-align-center u-text u-text-default u-text-4">plates of rice</h6>
+                            <h6 class="u-text u-text-default u-text-4">plates of rice</h6>
                         </div>
                     </div>
                     <div class="u-align-center u-container-style u-list-item u-repeater-item">
-                        <div class="u-container-layout u-similar-container u-container-layout-3"><span
-                                class="u-icon u-icon-circle u-text-black u-icon-3"><svg class="u-svg-link"
+                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><span
+                                class="u-icon u-icon-circle u-text-white u-icon-3"><svg class="u-svg-link"
                                     preserveAspectRatio="xMidYMin slice" viewBox="0 0 512.003 512.003" style="">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-69cd"></use>
                                 </svg><svg class="u-svg-content" viewBox="0 0 512.003 512.003" x="0px" y="0px"
@@ -576,14 +594,57 @@
                     </div>
                 </div>
             </div>
-            <div class="u-black u-container-style u-group u-shape-circle u-group-1">
+            <div class="u-container-style u-group u-palette-1-light-1 u-shape-circle u-group-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-4">
                     <h6 class="u-align-center u-text u-text-7">we cook everyday</h6>
                 </div>
             </div>
         </div>
     </section>
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0252">
+        <div class="u-align-left u-clearfix u-sheet u-sheet-1"></div>
+    </footer>
 
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="avatar">
+                        <img src="{% static 'image/login-icon.png' %}">
+                    </div>
+                    <h4 class="modal-title">管理者登入</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group wrapper">
+                            <input type="text" class="form-control" name="username" placeholder="Username"
+                                required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password"
+                                required="required">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/modal/jquery-slim.min.js' %}"></script>
+    <script src="{% static 'js/modal/popper.min.js' %}"></script>
+    <script src="{% static 'js/modal/util.js' %}"></script>
+    <script src="{% static 'js/modal/modal.js' %}"></script>
+    <script src="{% static 'js/modal/collapse.js' %}"></script>
+    <script src="{% static 'js/modal/tooltip.js' %}"></script>
+    <script src="{% static 'js/modal/popover.js' %}"></script>
 </body>
 
 </html>

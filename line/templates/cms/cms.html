@@ -46,13 +46,30 @@
         </div>
     </header>
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+
         <div class="u-expanded-width u-table u-table-responsive u-table-1">
             <div class="page">
                 <div class="page-body">
                     <div class="container-xl">
                         <div class="row row-cards">
                             <div class="col-12">
+                                <!-- Page title actions -->
+                                <div class="col-12 col-md-auto ms-auto d-print-none">
+                                    <div class="btn-list">
+                                        <a href="{% url 'logout' %}">
+                                            <button type="button"style="float: right;"class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                登出
+                                            </button>
+                                        </a>
+                                        <button type="submit" class="btn btn-outline-success">
+                                            <i class="fa-solid fa-plus"></i>
+                                            新增
+                                        </button>
+                                    </div>
+                                </div>
                                 <div class="col-12">
+                                    
                                     <div class="card">
                                         <div class="table-responsive">
                                             <table class="table table-vcenter card-table table-striped">
@@ -106,7 +123,7 @@
                                                     <div class="modal fade" id="{{reserve_detail.pk}}" tabindex="-1"
                                                         role="dialog" aria-labelledby="firefoxModalLabel"
                                                         aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h3 class="modal-title">修改訂位資訊</h3>
