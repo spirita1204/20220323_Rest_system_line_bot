@@ -624,8 +624,13 @@ def handle_postback_message(event):
                 pageDateTime = (str(reserveInform_confirm.reserve_datetime_confirm)[
                                 :-6].replace(" ", "T"))
 
-                if(userId_mapping_blockId.objects.filter(userId=userId) == None):
-                    pass
+                if(userId_mapping_blockId.objects.filter(userId=userId).first() == None):
+                    print("userId_mapping_blockId沒資料!")
+                    # 訂單新增到Notion
+                    blockId = createPage(userId,
+                                        reserveInform_confirm.reserve_name_confirm,
+                                        reserveInform_confirm.reserve_email_confirm,
+                                        pageDateTime)
                 # 判斷過期否 決定刪除資料
                 else:
                     getBlockId = userId_mapping_blockId.objects.filter(
