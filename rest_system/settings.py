@@ -75,7 +75,8 @@ WSGI_APPLICATION = 'rest_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+#原本
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  #PostgreSQL
         'NAME': 'DATA_USER',  #資料庫名稱
@@ -84,8 +85,18 @@ DATABASES = {
         'HOST': 'localhost',  #Server(伺服器)位址
         'PORT': '5432'  #PostgreSQL Port號
     }
+} """
+#Heroku使用
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  #PostgreSQL
+        'NAME': 'd3011f0hu1ebs',  #資料庫名稱
+        'USER': 'wztlbzqjpztlod',  #資料庫帳號
+        'PASSWORD': 'a5169d553e3ab681eefd96da7be6b9843f41971ddfe5103cf382e4d3464b58d0',  #資料庫密碼
+        'HOST': 'ec2-44-196-223-128.compute-1.amazonaws.com',  #Server(伺服器)位址
+        'PORT': '5432'  #PostgreSQL Port號
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
