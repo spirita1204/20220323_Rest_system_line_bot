@@ -8,4 +8,3 @@ pandas==1.1.5
 python_dateutil==2.8.2
 requests==2.24.0
 SQLAlchemy==1.3.18
-~jango==3.2.9
