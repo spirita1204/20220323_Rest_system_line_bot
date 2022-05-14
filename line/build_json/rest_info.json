@@ -346,7 +346,7 @@
                     "action": {
                       "type": "uri",
                       "label": "action",
-                      "uri": "https://lin.ee/kk39GsJ"
+                      "uri": "https://restaurant-system-bot.herokuapp.com/cms/rest_system/"
                     }
                   },
                   {
