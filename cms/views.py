@@ -7,7 +7,8 @@ from django.contrib import auth
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
-
+#輸出登入錯誤訊息
+from django.contrib import messages
 # 瀏覽訂位資訊
 # 當使用者未登入，而存取首頁的網址時，將使用者導向到登入畫面。
 @login_required(login_url="/cms/rest_system/")
@@ -75,6 +76,7 @@ def login(request):
             auth.login(request, user)
             return HttpResponseRedirect('/cms/reserve_detail/')
         else:
+            messages.info(request, '登入有誤,請重新登入或連繫系統管理員!')
             return render(request, "cms/home.html")
     else:
         return render(request, "cms/home.html")
