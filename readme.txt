@@ -23,3 +23,5 @@ netlify   | static page
   
   
 liff tool : https://developers.line.biz/en/docs/liff/trying-liff-app/#how-to-start-liff-starter-app  
+
+將LINE Bot部署到Heroku雲端平台時，在HTTP請求(Request)的處理上，就需要使用WSGI(Web Server Gateway Interface)介面，來負責網頁伺服器(Heroku雲端平台)與網頁應用程式(LINE Bot)之間的溝通，而Python的gunicorn伺服器就是扮演這樣的角色
