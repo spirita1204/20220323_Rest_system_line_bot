@@ -109,7 +109,6 @@ def send_email(emailAccount, emailApplicationCode, recipient, datetime, url=""):
             print("Error message: ", e)
 
 # 定義抽象類別
-send_email("duwu410@gmail.com", "kitvcbxnnzffzhcg", "daniel23232326@gmail.com", "2022/12/20", url="aaaa")
 
 class Table(ABC):
     @abstractmethod
