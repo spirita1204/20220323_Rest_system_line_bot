@@ -668,7 +668,8 @@ def handle_postback_message(event):
                 send_email(settings.EMAIL_ACCOUNT,
                            settings.EMAIL_APPLICATION_CODE,
                            reserveInform_confirm.reserve_email_confirm,
-                           dateTimeEmail)
+                           dateTimeEmail,
+                           userId)#userId導向訂位明細
 
                 line_bot_api.reply_message(
                     event.reply_token,

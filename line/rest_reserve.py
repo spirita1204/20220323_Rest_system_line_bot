@@ -8,13 +8,17 @@ import smtplib
 
 from email.mime.image import MIMEImage
 from pathlib import Path
-
+from string import Template
+ 
 from abc import ABC, abstractmethod  # 抽象繼承(blurprint)
 import json
+
+from matplotlib.style import context
 
 # 狀態enum
 from linebot.models import (
     ImagemapSendMessage, URIImagemapAction, MessageImagemapAction, Video, BaseSize, ImagemapArea, ExternalLink)
+
 
 class Status_Type(Enum):
     STATUS_DEFAULT = "初始狀態"
@@ -75,12 +79,23 @@ def email_identity(email):
 
 # 寄通知信
 def send_email(emailAccount, emailApplicationCode, recipient, datetime, url=""):
+    html = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <body>
+        您已預訂rest system $datetime 的用餐時段。訂位資訊如下:<a  href="$url">訂位明細</a>
+    </body>
+    </html>
+    """
     content = MIMEMultipart()  # 建立MIMEMultipart物件
     content["subject"] = "預訂成功通知!"  # 郵件標題
     content["from"] = settings.EMAIL_ACCOUNT  # 寄件者
     content["to"] = recipient  # 收件者
-    content.attach(MIMEText("您已預訂rest system " +
-                            datetime + "的用餐時段。訂位資訊:"+url))  # 郵件內容
+    # content.attach(MIMEText("您已預訂rest system " +
+    #                        datetime + "的用餐時段。訂位資訊:"+url))  # 郵件內容
+    template = Template(html)
+    body = template.substitute({ "datetime": datetime,"url": "https://restaurant-system-bot.herokuapp.com/reserve/"+url})
+    content.attach(MIMEText(body,"html","utf-8"))
     content.attach(
         MIMEImage(Path("./media/RESTSYSTEM.png").read_bytes()))  # 郵件圖片內容
     with smtplib.SMTP(host="smtp.gmail.com", port="587") as smtp:  # 設定SMTP伺服器
@@ -94,7 +109,7 @@ def send_email(emailAccount, emailApplicationCode, recipient, datetime, url=""):
             print("Error message: ", e)
 
 # 定義抽象類別
-
+send_email("duwu410@gmail.com", "kitvcbxnnzffzhcg", "daniel23232326@gmail.com", "2022/12/20", url="aaaa")
 
 class Table(ABC):
     @abstractmethod
@@ -804,4 +819,3 @@ def emoji_survey_birthdayNotNow():
         }
     ]
     return emoji_survey_birthdayNotNow
-
