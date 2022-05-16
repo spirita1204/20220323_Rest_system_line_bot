@@ -719,7 +719,7 @@ def reserve_web_show(request, id):
         # 判斷用戶資料填寫完整否
         if reserveInforms.reserve_name_confirm == None or reserveInforms.reserve_email_confirm == None or reserveInforms.reserve_datetime_confirm == None:
             print("something is missing!")
-            return render(request, "line/reserve404.html")
+            return render(request, "line/404.html")
 
         dateTime = reserveInforms.reserve_datetime_confirm
         dateTimeFormat = dateTime.strftime('%Y-%m-%d %H:%M')
@@ -747,7 +747,7 @@ def reserve_web_show(request, id):
     # 找不到用戶資訊
     except reserve_inform.DoesNotExist:
         print("DoesNotExist")
-        return render(request, "line/reserve404.html")
+        return render(request, "line/404.html")
 
 # 處理linebot FollowEvent 事件
 @web_hook_handler.add(FollowEvent)
