@@ -727,7 +727,7 @@ def reserve_web_show(request, id):
         # 時間過期不顯示
         if(dateTime < timezone.now()):
             print("Expired!")
-            return render(request, "line/reserve404.html")
+            return render(request, "line/404.html")
 
         year = dateTimeFormat[:4]
         month = dateTimeFormat[5:7]
