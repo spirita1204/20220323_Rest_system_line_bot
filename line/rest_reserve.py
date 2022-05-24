@@ -546,7 +546,7 @@ class Json_Table(Table):
 
 def imagemap_birthdayMessage():
     imagemap_message = ImagemapSendMessage(
-        base_url='https://i.ibb.co/V2TsxhR/birthday1040.png',
+        base_url='https://i.ibb.co/hHcTzdH/birthday1040-1-removebg-preview-2-1-1.jpg',
         alt_text='生日調查',
         base_size=BaseSize(height=1040, width=1040),
         actions=[
