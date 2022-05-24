@@ -665,7 +665,7 @@ def imagemap_birthdayMessage():
 
 def imagemap_timeMessage():
     imagemap_timeMessage = ImagemapSendMessage(
-        base_url='https://i.ibb.co/RPSNhxW/pro-1-1.png',
+        base_url='https://i.ibb.co/KsgDRPF/pro-1-1.jpg',
         alt_text='問卷調查',
         base_size=BaseSize(height=1040, width=1040),
         actions=[
