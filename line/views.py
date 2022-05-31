@@ -752,11 +752,13 @@ def reserve_web_show(request, id):
 # 處理linebot FollowEvent 事件
 @web_hook_handler.add(FollowEvent)
 def handle_follow_message(event):
+    jsonTable = Json_Table()
     #拿到用戶名字資料顯示在條款上
     userId = event.source.user_id
     try:
         profile = line_bot_api.get_profile(userId)
-        print(profile)
+        print(profile.displayName)
+        jsonTable.followRole(profile.displayName)
     except LineBotApiError as e:
         print("get user information failed!")
     

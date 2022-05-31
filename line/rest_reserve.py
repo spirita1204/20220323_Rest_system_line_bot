@@ -9,7 +9,7 @@ import smtplib
 from email.mime.image import MIMEImage
 from pathlib import Path
 from string import Template
- 
+
 from abc import ABC, abstractmethod  # 抽象繼承(blurprint)
 import json
 
@@ -94,8 +94,9 @@ def send_email(emailAccount, emailApplicationCode, recipient, datetime, url=""):
     # content.attach(MIMEText("您已預訂rest system " +
     #                        datetime + "的用餐時段。訂位資訊:"+url))  # 郵件內容
     template = Template(html)
-    body = template.substitute({ "datetime": datetime,"url": "https://restaurant-system-bot.herokuapp.com/reserve/"+url})
-    content.attach(MIMEText(body,"html","utf-8"))
+    body = template.substitute(
+        {"datetime": datetime, "url": "https://restaurant-system-bot.herokuapp.com/reserve/"+url})
+    content.attach(MIMEText(body, "html", "utf-8"))
     content.attach(
         MIMEImage(Path("./media/RESTSYSTEM.png").read_bytes()))  # 郵件圖片內容
     with smtplib.SMTP(host="smtp.gmail.com", port="587") as smtp:  # 設定SMTP伺服器
@@ -110,7 +111,12 @@ def send_email(emailAccount, emailApplicationCode, recipient, datetime, url=""):
 
 # 定義抽象類別
 
+
 class Table(ABC):
+    @abstractmethod
+    def followRole(self):
+        pass
+
     @abstractmethod
     def reserveConfirm(self):
         pass
@@ -126,6 +132,96 @@ class Table(ABC):
 
 
 class Json_Table(Table):
+    def followRole(self, dispName):
+        data = {
+            "type": "bubble",
+            "hero": {
+                "type": "image",
+                "url": "https://i.ibb.co/cv51jgx/base.png",
+                "size": "full",
+                "aspectRatio": "7:6",
+                "aspectMode": "cover"
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": dispName+",歡迎使用Rest System!",
+                        "weight": "bold",
+                        "size": "lg",
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "margin": "lg",
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "spacing": "sm",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "開始使用本訂位系統前請先同意本服務",
+                                        "size": "sm",
+                                        "color": "#FFFFFF"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "與隱私條款",
+                                        "size": "sm",
+                                        "color": "#FFFFFF"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "查看條款>",
+                                        "size": "sm",
+                                        "color": "#00bcd4",
+                                        "action": {
+                                            "type": "uri",
+                                            "label": "action",
+                                            "uri": "https://liff.line.me/1657110099-9LmzVllQ"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "backgroundColor": "#282827"
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                    {
+                        "type": "button",
+                        "style": "primary",
+                        "height": "sm",
+                        "action": {
+                            "type": "message",
+                            "label": "同意條款並開始使用",
+                            "text": "@同意條款並開始使用"
+                        },
+                        "color": "#282827"
+                    }
+                ],
+                "flex": 0,
+                "backgroundColor": "#282827"
+            }
+        }
+        # 寫入Trending_flex.json給line_bot_api.reply_message()載入
+        with open('line/build_json/follow_rule.json', 'w') as f:
+            # <--- should reset file position to the beginning.
+            f.seek(0)
+            json.dump(data, f)
+            f.truncate()     # remove remaining part
+
     def reserveConfirm(self, name, email, dateTime):
         data = {
             "type": "bubble",
