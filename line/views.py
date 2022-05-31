@@ -209,7 +209,10 @@ def handle_message(event):
                             FlexSendMessage(
                                 alt_text='取消結果',
                                 contents=json.load(
-                                    open('line/build_json/reserve_cancel_success.json', 'r', encoding='utf-8'))
+                                    open('line/build_json/reserve_cancel_success.json', 'r', encoding='utf-8')),
+                                # 2022/04/16 新增QuickReply
+                                quick_reply=json.load(
+                                    open('line/build_json/quick_reply_after_cancel.json', 'r', encoding='utf-8'))
                             )
                         )
                     else:
@@ -294,7 +297,10 @@ def handle_message(event):
                             FlexSendMessage(
                                 alt_text='查詢結果',
                                 contents=json.load(
-                                    open('line/build_json/reserve_search_success.json', 'r', encoding='utf-8'))
+                                    open('line/build_json/reserve_search_success.json', 'r', encoding='utf-8')),
+                                # 2022/04/16 新增QuickReply
+                                quick_reply=json.load(
+                                    open('line/build_json/quick_reply_after_search.json', 'r', encoding='utf-8'))
                             )
                         )
                     else:
@@ -677,7 +683,10 @@ def handle_postback_message(event):
                      FlexSendMessage(
                         alt_text='已成功訂位',
                         contents=json.load(
-                            open('line/build_json/reserve_success.json', 'r', encoding='utf-8'))
+                            open('line/build_json/reserve_success.json', 'r', encoding='utf-8')),
+                        # 2022/04/16 新增QuickReply
+                        quick_reply=json.load(
+                            open('line/build_json/quick_reply_after_reserve.json', 'r', encoding='utf-8'))
                     )]
                 )
         if event.postback.data == 'cancel':
