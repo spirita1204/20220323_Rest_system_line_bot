@@ -752,6 +752,14 @@ def reserve_web_show(request, id):
 # 處理linebot FollowEvent 事件
 @web_hook_handler.add(FollowEvent)
 def handle_follow_message(event):
+    #拿到用戶名字資料顯示在條款上
+    userId = event.source.user_id
+    try:
+        profile = line_bot_api.get_profile(userId)
+        print(profile)
+    except LineBotApiError as e:
+        print("get user information failed!")
+    
     # 用戶新加入bot,推送同意條款資訊,和新手指引相關
     line_bot_api.reply_message(
         event.reply_token,
