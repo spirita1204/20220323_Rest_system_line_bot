@@ -371,7 +371,7 @@ class Json_Table(Table):
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "時間  :",
+                                        "text": "時間 :",
                                         "color": "#aaaaaa",
                                         "size": "sm",
                                         "flex": 1
@@ -496,7 +496,7 @@ class Json_Table(Table):
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "時間  :",
+                                        "text": "時間 :",
                                         "color": "#aaaaaa",
                                         "size": "sm",
                                         "flex": 1
