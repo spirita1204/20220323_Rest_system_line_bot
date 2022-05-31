@@ -132,7 +132,7 @@ class Json_Table(Table):
             "size": "kilo",
             "hero": {
                 "type": "image",
-                "url": "https://i.ibb.co/4NFcJ4D/649889.jpg",
+                "url": "https://i.ibb.co/rHLWK0j/base.png",
                 "size": "full",
                 "aspectMode": "cover"
             },
@@ -284,7 +284,7 @@ class Json_Table(Table):
             "size": "kilo",
             "hero": {
                 "type": "image",
-                "url": "https://i.ibb.co/ypgysDY/651478.jpg",
+                "url": "https://i.ibb.co/44G2QFN/image.png",
                 "size": "full",
                 "aspectMode": "cover"
             },
@@ -409,7 +409,7 @@ class Json_Table(Table):
             "size": "kilo",
             "hero": {
                 "type": "image",
-                "url": "https://i.ibb.co/GMmszvV/649899.jpg",
+                "url": "https://i.ibb.co/5jhwLTP/image.png",
                 "size": "full",
                 "aspectMode": "cover"
             },

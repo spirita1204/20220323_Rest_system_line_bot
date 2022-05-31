@@ -2,7 +2,7 @@
   "type": "bubble",
   "hero": {
     "type": "image",
-    "url": "https://i.ibb.co/Jz4WZHx/reserve-time.jpg",
+    "url": "https://i.ibb.co/zJDh5zT/image.png",
     "size": "full",
     "action": {
       "type": "datetimepicker",
