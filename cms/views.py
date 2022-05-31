@@ -58,6 +58,22 @@ def update(request, pk):  # 修改資料 ,pk傳哪個
             print("form update!")
     return redirect('/cms/reserve_detail/')
 
+def create(request): # 新增資料
+    print("create")
+
+    if request.method == "POST":
+        form = DatetimeModelForm(request.POST)
+        if form.is_valid():
+            form_name = form["reserve_name_confirm"].value()
+            form_email = form["reserve_email_confirm"].value()
+            form_datetime = form["reserve_datetime_confirm"].value()
+
+            form.reserve_name_confirm = form_name
+            form.reserve_email_confirm = form_email
+            form.reserve_datetime_confirm = form_datetime
+            form.save()
+            print("form create!")
+    return redirect('/cms/reserve_detail/')
 
 def home(request):
     return render(request, "cms/home.html")

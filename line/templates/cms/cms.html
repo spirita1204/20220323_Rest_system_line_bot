@@ -57,19 +57,21 @@
                                 <div class="col-12 col-md-auto ms-auto d-print-none">
                                     <div class="btn-list">
                                         <a href="{% url 'logout' %}">
-                                            <button type="button"style="float: right;"class="btn btn-outline-secondary">
+                                            <button type="button" style="float: right;"
+                                                class="btn btn-outline-secondary">
                                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                                 登出
                                             </button>
                                         </a>
-                                        <button type="submit" class="btn btn-outline-success">
+                                        <button type="button" data-toggle="modal" data-target="#addModal" onclick=""
+                                            class="btn btn-outline-success">
                                             <i class="fa-solid fa-plus"></i>
                                             新增
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    
+
                                     <div class="card">
                                         <div class="table-responsive">
                                             <table class="table table-vcenter card-table table-striped">
@@ -210,6 +212,73 @@
             </div>
         </div>
     </div>
+    <!--modal移到for loop 中 這樣才吃的到reserve_detail-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="firefoxModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">新增訂位資訊</h3>
+                </div>
+                <div class="modal-body">
+                    <p id="modal_body_add"></p>
+                    <!--修改操作-->
+                    <form action="{% url 'create' %}" method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group position-relative ">
+                            <!-- 
+                            <label for="name">姓名:</label>
+                            <input type="text" class="form-control is-valid" placeholder="dnaiel chen" name="name"
+                            id="name" onkeyup="validateName()"> 
+                        -->
+                            <label>
+                                {{datetimeForm.reserve_name_confirm.label}}
+                            </label>
+                            {{ datetimeForm.reserve_name_confirm }}
+                            <span id="name-error_{{reserve_detail.pk}}" class="valid-feedback feedback-icon"></span>
+                        </div>
+                        <div class="form-group position-relative">
+                            <!-- 
+                            <label for="email">信箱:</label>
+                            <input type="email" class="form-control is-valid" placeholder="dnaiel@gmail.com"
+                            name="email" id="email" onkeyup="validateEmail()"> 
+                        -->
+                            <label>
+                                {{datetimeForm.reserve_email_confirm.label}}
+                            </label>
+                            {{ datetimeForm.reserve_email_confirm }}
+                            <span id="email-error" class="valid-feedback feedback-icon"></span>
+                        </div>
+                        <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local-->
+                        <div class="form-group position-relative ">
+                            <!--
+                            <label for="datetimePicker">時間:</label>
+                            <input type="datetime-local" class="form-control is-valid" id="datetimePicker"
+                                name="datetimePicker"  max="2023-12-30T00:00">
+                        -->
+
+                            <label>
+                                {{datetimeForm.reserve_datetime_confirm.label}}
+                            </label>
+                            {{ datetimeForm.reserve_datetime_confirm }}
+                            <span id="datetime-error" class="valid-feedback feedback-icon"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <span id="submit-error" style="float:left;"></span>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                關閉
+                            </button>
+                            <button type="submit" class="btn btn-primary" onclick="return validateForm()">
+                                新增
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--modal 結束-->
     <script>
 
         /* $('.editMe').click(function () {
