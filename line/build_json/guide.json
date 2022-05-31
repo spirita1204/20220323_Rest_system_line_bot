@@ -9,11 +9,11 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
-            "size": "full",
+            "url": "https://i.ibb.co/0MLQWzJ/3.png",
+            "gravity": "top",
             "aspectMode": "cover",
             "aspectRatio": "2:3",
-            "gravity": "top"
+            "size": "full"
           },
           {
             "type": "box",
@@ -87,10 +87,9 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip2.jpg",
+            "url": "https://i.ibb.co/v365bcN/image.png",
             "size": "full",
             "aspectMode": "cover",
-            "aspectRatio": "2:3",
             "gravity": "top"
           },
           {
@@ -165,10 +164,9 @@
         "contents": [
           {
             "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+            "url": "https://i.ibb.co/0MLQWzJ/3.png",
             "size": "full",
             "aspectMode": "cover",
-            "aspectRatio": "2:3",
             "gravity": "top"
           },
           {
