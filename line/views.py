@@ -757,8 +757,9 @@ def handle_follow_message(event):
     userId = event.source.user_id
     try:
         profile = line_bot_api.get_profile(userId)
-        print(profile.displayName)
-        jsonTable.followRole(profile.displayName)
+        print(profile)
+        print(profile.display_name)
+        jsonTable.followRole(profile.display_name)
     except LineBotApiError as e:
         print("get user information failed!")
     
