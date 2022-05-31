@@ -8,12 +8,18 @@
         "layout": "vertical",
         "contents": [
           {
-            "type": "image",
-            "url": "https://i.ibb.co/0MLQWzJ/3.png",
-            "gravity": "top",
-            "aspectMode": "cover",
-            "aspectRatio": "2:3",
-            "size": "full"
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "gravity": "top",
+                "aspectMode": "cover",
+                "size": "full",
+                "url": "https://i.ibb.co/tMb4490/image.png",
+                "aspectRatio": "1:1"
+              }
+            ]
           },
           {
             "type": "box",
@@ -67,7 +73,7 @@
                 "color": "#00bcd4"
               }
             ],
-            "position": "absolute",
+            "position": "relative",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
@@ -86,11 +92,18 @@
         "layout": "vertical",
         "contents": [
           {
-            "type": "image",
-            "url": "https://i.ibb.co/v365bcN/image.png",
-            "size": "full",
-            "aspectMode": "cover",
-            "gravity": "top"
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://i.ibb.co/v365bcN/image.png",
+                "size": "full",
+                "aspectMode": "cover",
+                "gravity": "top",
+                "aspectRatio": "1:1"
+              }
+            ]
           },
           {
             "type": "box",
@@ -144,7 +157,7 @@
                 "color": "#ff4081"
               }
             ],
-            "position": "absolute",
+            "position": "relative",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
@@ -163,11 +176,18 @@
         "layout": "vertical",
         "contents": [
           {
-            "type": "image",
-            "url": "https://i.ibb.co/0MLQWzJ/3.png",
-            "size": "full",
-            "aspectMode": "cover",
-            "gravity": "top"
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://i.ibb.co/0MLQWzJ/3.png",
+                "size": "full",
+                "aspectMode": "cover",
+                "gravity": "top",
+                "aspectRatio": "1:1"
+              }
+            ]
           },
           {
             "type": "box",
@@ -220,7 +240,7 @@
                 }
               }
             ],
-            "position": "absolute",
+            "position": "relative",
             "offsetBottom": "0px",
             "offsetStart": "0px",
             "offsetEnd": "0px",
