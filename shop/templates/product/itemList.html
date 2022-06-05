@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>外送餐點清單</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/90ce0a0bd4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Main -->
+    <div class="product-card">
+        <div class="product-image">
+            <img width="200" height="200" src="{% static 'image/1.png' %}">
+        </div>
+        <div class="product-details">
+            <h1>巧克力布朗尼</h1>
+            <p>一種方形的巧克力烘焙甜點。根據不同的組成密度，布朗尼有很多種型態，可能是比較濕潤的口感，或是比較像蛋糕偏乾的口感。</p>
+            <div id="div1">
+                <button type="button" data-name="巧克力布朗尼" data-price="230" class="add-to-cart btn btn-light">購買</button>
+            </div>
+            <div id="div2">
+                <h5 style="text-align:right;">230 NT$</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image">
+            <img width="200" height="200" src="{% static 'image/2.png' %}">
+        </div>
+        <div class="product-details">
+            <h1>全麥麵包</h1>
+            <p>全麥麵包是指用沒有去掉外面麩皮和麥胚的全麥麵粉製作的麵包，其特點是顏色微褐，肉眼能看到麥麩的小粒，質地比較粗糙，含有豐富粗纖維</p>
+            <div id="div1">
+                <button type="button" data-name="全麥麵包" data-price="80" class="add-to-cart btn btn-light">購買</button>
+            </div>
+            <div id="div2">
+                <h5 style="text-align:right;">80 NT$</h5>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-image">
+            <img width="200" height="200" src="{% static 'image/pexels-photo-2762942.jpeg' %}">
+        </div>
+        <div class="product-details">
+            <h1>窯烤披薩</h1>
+            <p>以義大利手工火山窯爐作為工具，加上自製的麵團經過長時間發酵、窯烤後，披薩外皮呈現虎斑狀焦斑，口感十分有嚼勁</p>
+            <div id="div1">
+                <button type="button" data-name="窯烤披薩" data-price="380" class="add-to-cart btn btn-light">購買</button>
+            </div>
+            <div id="div2">
+                <h5 style="text-align:right;">380 NT$</h5>
+            </div>
+
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-image">
+            <img width="200" height="200" src="{% static 'image/3.png' %}">
+        </div>
+        <div class="product-details">
+            <h1>穀麥粥</h1>
+            <p>起源於美國，但在日本等地也頗受歡迎，是一種以燕麥片、堅果、蜂蜜作為原料、經烘烤而成的食物。穀麥經常被當作早餐或零食食用</p>
+            <div id="div1">
+                <button type="button" data-name="穀麥粥" data-price="65" class="add-to-cart btn btn-light">購買</button>
+            </div>
+            <div id="div2">
+                <h5 style="text-align:right;">65 NT$</h5>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-image">
+            <img width="200" height="200" src="{% static 'image/5.png' %}">
+        </div>
+        <div class="product-details">
+            <h1>葡萄酒</h1>
+            <p>葡萄酒是用新鮮葡萄果實或葡萄汁，經過發酵釀製而成的酒精飲料。在水果中，由於葡萄的葡萄糖及果糖含量較高，因此常常以葡萄釀酒。</p>
+            <div id="div1">
+                <button type="button" data-name="葡萄酒" data-price="500" class="add-to-cart btn btn-light">購買</button>
+            </div>
+            <div id="div2">
+                <h5 style="text-align:right;">500 NT$</h5>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <div class="product-image">
+            <img width="200" height="200" src="{% static 'image/6.png' %}">
+        </div>
+        <div class="product-details">
+            <h1>阿薩伊碗</h1>
+            <p>一種使用阿薩伊果（巴西莓）製作的巴西甜品。主要材料是冰鎮、搗碎的阿薩伊果，常與其他水果和瓜拿納（巴西香可可）糖漿混合</p>
+
+            <div id="div1">
+                <button type="button" data-name="阿薩伊碗" data-price="120" class="add-to-cart btn btn-light">購買</button>
+            </div>
+            <div id="div2">
+                <h5 style="text-align:right;">120 NT$</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="tablePass"class="show-cart table">
+
+                    </table>
+                    <div class="d-flex justify-content-end">
+                        <h5>總計 : <span class="total-cart price text-success"></span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-danger clear-cart">清空</button>
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary toCheckout">去買單</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mybutton">
+        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#cart">
+            <!-- <span class="badge badge-light total-count"></span> -->
+            <i class="fa-solid fa-cart-shopping"> 購物車</i>
+            <span class="icon-button__badge total-count"></span>
+        </button>
+    </div>
+</body>
+<style>
+    body {
+        padding-top: 80px;
+    }
+
+    .show-cart li {
+        display: flex;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-img-top {
+        width: 200px;
+        height: 200px;
+        align-self: center;
+    }
+
+    .icon-button__badge {
+        position: absolute;
+        top: -10px;
+        right: 0px;
+        width: 25px;
+        height: 25px;
+        background: red;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+</style>
+<style>
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: $bg-color;
+    }
+
+    .product-card {
+        background-color: #282827;
+        max-width: 550px;
+        min-height: 270px;
+        margin: 0 auto;
+        margin-top: -40px;
+        margin-bottom: 50px;
+        box-shadow: 8px 12px 30px $shadow-color;
+        color: #ffffff;
+        font-weight: normal;
+        text-align: left;
+        font-size: $font-size;
+        position: relative;
+    }
+
+    .product-details {
+        width: 60%;
+        float: left;
+        height: 100%;
+        padding: 30px;
+
+        h1 {
+            color: #333;
+            font-family: $cursive-font;
+            margin-bottom: 35px;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: $button-color;
+            border-radius: 0;
+            color: #fff;
+            box-shadow: 2px 2px 7px $button-shadow-color;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: #fff;
+            }
+        }
+    }
+
+    .product-image {
+        position: absolute;
+        right: -20px;
+        top: -40px;
+
+        img {
+            max-width: 400px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .product-card {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+    }
+
+    @media (max-width: 540px) {
+        .product-card {
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .product-details {
+            width: 60%;
+            z-index: 1;
+        }
+
+        .product-image {
+            width: 100%;
+            left: 40%;
+            top: -50px;
+        }
+    }
+
+    @media (max-width: 440px) {
+        .product-details {
+            width: 65%;
+        }
+    }
+
+    @media (max-width: 365px) {
+        .product-details {
+            width: 80%;
+            position: relative;
+            color: #fff;
+            /*background-color: rgba(208, 223, 223, 0.7);*/
+        }
+    }
+</style>
+<style type="text/css">
+    #div1 {
+        float: left;
+    }
+
+    #div2 {
+        float: right;
+    }
+
+    #mybutton {
+        position: fixed;
+        bottom: -4px;
+        right: 10px;
+    }
+</style>
+
+<script>
+    // ************************************************
+    // Shopping Cart API
+    // ************************************************
+
+    var shoppingCart = (function () {
+        // =============================
+        // Private methods and propeties
+        // =============================
+        cart = [];
+
+        // Constructor
+        function Item(name, price, count) {
+            this.name = name;
+            this.price = price;
+            this.count = count;
+        }
+
+        // Save cart
+        function saveCart() {
+            sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+        }
+
+        // Load cart
+        function loadCart() {
+            cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+        }
+        if (sessionStorage.getItem("shoppingCart") != null) {
+            loadCart();
+        }
+
+
+        // =============================
+        // Public methods and propeties
+        // =============================
+        var obj = {};
+
+        // Add to cart
+        obj.addItemToCart = function (name, price, count) {
+            for (var item in cart) {
+                if (cart[item].name === name) {
+                    cart[item].count++;
+                    saveCart();
+                    return;
+                }
+            }
+            var item = new Item(name, price, count);
+            cart.push(item);
+            saveCart();
+        }
+        // Set count from item
+        obj.setCountForItem = function (name, count) {
+            for (var i in cart) {
+                if (cart[i].name === name) {
+                    cart[i].count = count;
+                    break;
+                }
+            }
+        };
+        // Remove item from cart
+        obj.removeItemFromCart = function (name) {
+            for (var item in cart) {
+                if (cart[item].name === name) {
+                    cart[item].count--;
+                    if (cart[item].count === 0) {
+                        cart.splice(item, 1);
+                    }
+                    break;
+                }
+            }
+            saveCart();
+        }
+
+        // Remove all items from cart
+        obj.removeItemFromCartAll = function (name) {
+            for (var item in cart) {
+                if (cart[item].name === name) {
+                    cart.splice(item, 1);
+                    break;
+                }
+            }
+            saveCart();
+        }
+
+        // Clear cart
+        obj.clearCart = function () {
+            cart = [];
+            saveCart();
+        }
+
+        // Count cart 
+        obj.totalCount = function () {
+            var totalCount = 0;
+            for (var item in cart) {
+                totalCount += cart[item].count;
+            }
+            return totalCount;
+        }
+
+        // Total cart
+        obj.totalCart = function () {
+            var totalCart = 0;
+            for (var item in cart) {
+                totalCart += cart[item].price * cart[item].count;
+            }
+            return Number(totalCart.toFixed(2));
+        }
+
+        // List cart
+        obj.listCart = function () {
+            var cartCopy = [];
+            for (i in cart) {
+                item = cart[i];
+                itemCopy = {};
+                for (p in item) {
+                    itemCopy[p] = item[p];
+
+                }
+                itemCopy.total = Number(item.price * item.count).toFixed(2);
+                cartCopy.push(itemCopy)
+            }
+            return cartCopy;
+        }
+
+        // cart : Array
+        // Item : Object/Class
+        // addItemToCart : Function
+        // removeItemFromCart : Function
+        // removeItemFromCartAll : Function
+        // clearCart : Function
+        // countCart : Function
+        // totalCart : Function
+        // listCart : Function
+        // saveCart : Function
+        // loadCart : Function
+        return obj;
+    })();
+
+
+    // *****************************************
+    // Triggers / Events
+    // ***************************************** 
+    // Add item
+    $('.add-to-cart').click(function (event) {
+        event.preventDefault();
+        //data dash取得商品資訊
+        var name = $(this).data('name');
+        var price = Number($(this).data('price'));
+        shoppingCart.addItemToCart(name, price, 1);
+        displayCart();
+    });
+
+    // Clear items
+    $('.clear-cart').click(function () {
+        shoppingCart.clearCart();
+        displayCart();
+    });
+
+
+    function displayCart() {
+        var cartArray = shoppingCart.listCart();
+        var output = "";
+        //輸出給checkout顯示
+        var output_checkout = "";
+        for (var i in cartArray) {
+            output += "<tr>"
+                + "<td>" + cartArray[i].name + "</td>"
+                + "<td>(" + cartArray[i].price + ")</td>"
+                + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+                + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+                + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+                + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+                + " = "
+                + "<td>" + cartArray[i].total + "</td>"
+                + "</tr>";
+                //明細format
+            output_checkout += "<tr>"
+                + "<td>" + cartArray[i].name + "</td>"
+                + "<td>(" + cartArray[i].price + ")</td>"
+                + "<td> x " + cartArray[i].count + " = </td>"
+                + "<td>" + cartArray[i].total + "</td>"
+                + "</tr>";
+
+        }
+        console.log(output)
+        // Save data to sessionStorage
+        localStorage.setItem('table', output_checkout);
+        // 存總額到sessionStorage
+        localStorage.setItem('total', shoppingCart.totalCart() + "$");
+
+        $('.show-cart').html(output);
+        $('.total-cart').html(shoppingCart.totalCart() + "$");
+        $('.total-count').html(shoppingCart.totalCount());
+    }
+
+    // Delete item button
+
+    $('.show-cart').on("click", ".delete-item", function (event) {
+        var name = $(this).data('name')
+        shoppingCart.removeItemFromCartAll(name);
+        displayCart();
+    })
+
+
+    // -1
+    $('.show-cart').on("click", ".minus-item", function (event) {
+        var name = $(this).data('name')
+        shoppingCart.removeItemFromCart(name);
+        displayCart();
+    })
+    // +1
+    $('.show-cart').on("click", ".plus-item", function (event) {
+        var name = $(this).data('name')
+        shoppingCart.addItemToCart(name);
+        displayCart();
+    })
+
+    // Item count input
+    $('.show-cart').on("change", ".item-count", function (event) {
+        var name = $(this).data('name');
+        var count = Number($(this).val());
+        shoppingCart.setCountForItem(name, count);
+        displayCart();
+    });
+
+    displayCart();
+
+</script>
+<script src="{% static 'js/modal/jquery-slim.min.js' %}"></script>
+<script src="{% static 'js/modal/popper.min.js' %}"></script>
+<script src="{% static 'js/modal/util.js' %}"></script>
+<script src="{% static 'js/modal/modal.js' %}"></script>
+<script src="{% static 'js/modal/collapse.js' %}"></script>
+<script src="{% static 'js/modal/tooltip.js' %}"></script>
+<script src="{% static 'js/modal/popover.js' %}"></script>
+
+</html>

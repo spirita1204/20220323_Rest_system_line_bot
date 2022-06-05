@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>外送資料填寫</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/90ce0a0bd4.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <!-- 
+        <table id="tableShow"class="tableShow table">
+        </table> 
+    -->
+
+    <div class="min-h-screen p-4 bg-gray-200 leading-loose main">
+        <form class="max-w-lg m-4 p-4 bg-white rounded shadow-xl" action="." method="post">
+            {% csrf_token %}
+            <p class="text-gray-800 font-medium">填寫顧客資料</p>
+            <div class="">
+                <label class="block text-sm text-gray-600" for="cus_name">
+                    {{ checkoutForm.order_name.label }}
+                </label>
+                {{ checkoutForm.order_name }}
+
+            </div>
+            <div class="mt-2">
+                <label class="block text-sm text-gray-600" for="cus_email">
+                    {{checkoutForm.order_email.label}}
+                </label>
+                {{ checkoutForm.order_email }}
+            </div>
+            <div class="mt-2">
+                <label class="block text-sm text-gray-600" for="cus_email">
+                    {{checkoutForm.order_address.label}}
+                </label>
+                {{ checkoutForm.order_address }}
+            </div>
+            <div class="mt-2">
+                <label class="block text-sm text-gray-600" for="cus_email">
+                    明細:
+                </label> 
+            </div>
+            <label class="block text-sm text-gray-600 auto_filled">
+            </label>
+            <label style="text-align:right;"class="block text-sm text-gray-600 total_filled">
+                總計 :<span class="total"></span>
+            </label>
+            {{ checkoutForm.order_item }}
+            {{ checkoutForm.order_price }}
+            <div style="text-align:right;" class="mt-4">
+                <button  class="btn btn-primary" type="submit">去付款</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+<script>
+    // Get saved data from sessionStorage
+    var table = localStorage.getItem('table');
+    var total = localStorage.getItem('total');
+    console.log(table);
+    console.log(total);
+    document.getElementById("cus_price").value = total;
+    // 買單頁面顯示
+    $('.tableShow').html(table);
+    // 明細顯示
+    $('.auto_filled').html(table);
+    // 總額存入
+    $('.total').html(total);
+    // 自動帶入order_item 欄位 供資料庫儲存 
+    table = table.replaceAll('<tr>', '');
+    table = table.replaceAll('</tr>', '\n');
+    table = table.replaceAll('<td>', '');
+    table = table.replaceAll('</td>', '');
+    console.log(table);
+    document.getElementById("cus_item").value = table;
+
+    console.log("success!");
+</script>
+
+</html>

@@ -466,6 +466,99 @@
         ],
         "paddingAll": "0px"
       }
+    },
+    {
+      "type": "bubble",
+      "size": "micro",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://i.ibb.co/9qs8HCj/1.png",
+            "size": "xxl",
+            "aspectMode": "cover",
+            "gravity": "top"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "外送訂餐",
+                    "size": "md",
+                    "color": "#ffffff",
+                    "weight": "bold"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "filler"
+                      },
+                      {
+                        "type": "icon",
+                        "url": "https://cdn-icons-png.flaticon.com/512/869/869636.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "點餐",
+                        "color": "#ffffff",
+                        "flex": 0,
+                        "offsetTop": "-2px",
+                        "size": "sm"
+                      },
+                      {
+                        "type": "filler"
+                      }
+                    ],
+                    "spacing": "sm",
+                    "action": {
+                      "type": "uri",
+                      "label": "action",
+                      "uri": "https://e15d-2001-b011-4009-1583-7169-8145-dcab-f67f.ngrok.io/shop/itemList/"
+                    }
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "borderWidth": "1px",
+                "cornerRadius": "4px",
+                "spacing": "sm",
+                "borderColor": "#ffffff",
+                "margin": "xxl",
+                "height": "40px",
+                "backgroundColor": "#ff4081"
+              }
+            ],
+            "position": "absolute",
+            "offsetBottom": "0px",
+            "offsetStart": "0px",
+            "offsetEnd": "0px",
+            "backgroundColor": "#282827",
+            "paddingAll": "20px",
+            "paddingTop": "18px"
+          }
+        ],
+        "paddingAll": "0px"
+      }
     }
   ]
 }

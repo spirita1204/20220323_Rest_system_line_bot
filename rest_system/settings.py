@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'line',
     'cms',
+    'shop',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'rest_system.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 #原本
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  #PostgreSQL
         'NAME': 'DATA_USER',  #資料庫名稱
@@ -85,9 +87,9 @@ WSGI_APPLICATION = 'rest_system.wsgi.application'
         'HOST': 'localhost',  #Server(伺服器)位址
         'PORT': '5432'  #PostgreSQL Port號
     }
-} """
+}
 #Heroku使用
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  #PostgreSQL
         'NAME': 'd3011f0hu1ebs',  #資料庫名稱
@@ -96,7 +98,7 @@ DATABASES = {
         'HOST': 'ec2-44-196-223-128.compute-1.amazonaws.com',  #Server(伺服器)位址
         'PORT': '5432'  #PostgreSQL Port號
     }
-}
+}'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
