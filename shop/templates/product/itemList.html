@@ -130,11 +130,12 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <span class="" id="submit-error"></span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
                     <button type="button" class="btn btn-danger clear-cart">清空</button>
                     <form action="." method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-primary toCheckout">去買單</button>
+                        <button type="submit" class="btn btn-primary toCheckout" onclick="return validateForm()">去買單</button>
                     </form>
                 </div>
             </div>
@@ -302,7 +303,12 @@
         right: 10px;
     }
 </style>
-
+<style>
+    #submit-error{
+        color: red;
+    }
+</style>
+</style>
 <script>
     // ************************************************
     // Shopping Cart API
@@ -497,7 +503,16 @@
         $('.total-cart').html(shoppingCart.totalCart() + "$");
         $('.total-count').html(shoppingCart.totalCount());
     }
-
+    // 未選擇商品情況不給跳轉
+    var submitError = document.getElementById('submit-error')
+    function validateForm(){
+        if(localStorage.getItem('total') == '0$'){
+            submitError.style.display = 'block';
+            submitError.innerHTML = "購物車為空";
+            setTimeout(function () { submitError.style.display = 'none'; }, 2000);
+            return false;
+        }
+    }
     // Delete item button
 
     $('.show-cart').on("click", ".delete-item", function (event) {
@@ -531,6 +546,7 @@
     displayCart();
 
 </script>
+
 <script src="{% static 'js/modal/jquery-slim.min.js' %}"></script>
 <script src="{% static 'js/modal/popper.min.js' %}"></script>
 <script src="{% static 'js/modal/util.js' %}"></script>

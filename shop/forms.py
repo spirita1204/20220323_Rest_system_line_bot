@@ -24,7 +24,8 @@ class CheckoutModelForm(forms.ModelForm):
                     'name': 'cus_name',
                     'placeholder': 'dnaiel chen',
                     'required': 'required',
-                    'aria-label' : 'Name'
+                    'aria-label' : 'Name',
+                    'onkeyup': 'validateName()',
                 }
             ),
             'order_email': forms.TextInput(
@@ -35,7 +36,8 @@ class CheckoutModelForm(forms.ModelForm):
                     'name': 'cus_email',
                     'placeholder': 'daniel@gmail.com',
                     'required': 'required',
-                    'aria-label' : 'Email'
+                    'aria-label' : 'Email',
+                    'onkeyup': 'validateEmail()',
                 }
             ),
             'order_address': forms.TextInput(
@@ -46,7 +48,8 @@ class CheckoutModelForm(forms.ModelForm):
                     'name': 'cus_address',
                     'placeholder': 'XX市XX區XX路XX號X樓',
                     'required': 'required',
-                    'aria-label' : 'Address'
+                    'aria-label' : 'Address',
+                    'onkeyup': 'validateAddress()',
                 }
             ),
             #供db紀錄用 所以隱藏
@@ -76,7 +79,7 @@ class CheckoutModelForm(forms.ModelForm):
         }
         # 表單欄位的標題
         labels = {
-            'order_name': '姓名:',
-            'order_email': '信箱:',
-            'order_address': '地址:',
+            'order_name': '姓名 :',
+            'order_email': '信箱 :',
+            'order_address': '地址 :',
         }
