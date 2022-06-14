@@ -36,4 +36,4 @@ liff tool : https://developers.line.biz/en/docs/liff/trying-liff-app/#how-to-sta
 ![plot](./githubReadmeImage/圖片4.jpg)  
 ![plot](./githubReadmeImage/圖片5.jpg)    
 ![plot](./githubReadmeImage/圖片6.png)  
-![plot](./githubReadmeImage/螢幕擷取畫面2022-06-14135932.png)  
+
