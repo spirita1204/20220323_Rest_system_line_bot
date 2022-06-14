@@ -1,5 +1,4 @@
 from django.shortcuts import render,redirect
-from nbformat import validate
 from .forms import CheckoutModelForm
 from payment.ecpay import main
 from django.http import HttpResponseRedirect,HttpResponse

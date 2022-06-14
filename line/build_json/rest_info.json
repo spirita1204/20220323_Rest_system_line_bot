@@ -346,7 +346,7 @@
                     "action": {
                       "type": "uri",
                       "label": "action",
-                      "uri": "https://restaurant-system-bot.herokuapp.com/cms/rest_system/"
+                      "uri": "https://c860-2001-b011-4009-1702-fdd5-a261-8bc8-4f8.ngrok.io/cms/rest_system/"
                     }
                   },
                   {
@@ -532,7 +532,7 @@
                     "action": {
                       "type": "uri",
                       "label": "action",
-                      "uri": "https://e15d-2001-b011-4009-1583-7169-8145-dcab-f67f.ngrok.io/shop/itemList/"
+                      "uri": "https://c860-2001-b011-4009-1702-fdd5-a261-8bc8-4f8.ngrok.io/shop/itemList/"
                     }
                   },
                   {

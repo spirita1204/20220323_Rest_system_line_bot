@@ -23,13 +23,13 @@ def main(order_id,form_order_item):
         'TotalAmount': price,                                               #商品金額
         'TradeDesc': '訂單測試',                                            #商品描敘       
         'ItemName': form_order_item,                                          #商品明細
-        'ReturnURL': 'https://e15d-2001-b011-4009-1583-7169-8145-dcab-f67f.ngrok.io/payment/end_return/',#'https://www.ecpay.com.tw/return_url.php' 顧客填完付款資料後的跳轉頁面
+        'ReturnURL': 'https://c860-2001-b011-4009-1702-fdd5-a261-8bc8-4f8.ngrok.io/payment/end_return/',#'https://www.ecpay.com.tw/return_url.php' 顧客填完付款資料後的跳轉頁面
         'ChoosePayment': 'ALL',
-        'ClientBackURL': 'https://e15d-2001-b011-4009-1583-7169-8145-dcab-f67f.ngrok.io/payment/end_page/',
+        'ClientBackURL': 'https://c860-2001-b011-4009-1702-fdd5-a261-8bc8-4f8.ngrok.io/payment/end_page/',
         'ItemURL': 'https://www.ecpay.com.tw/item_url.php',
         'Remark': '交易備註',
         'ChooseSubPayment': '',
-        'OrderResultURL': 'https://e15d-2001-b011-4009-1583-7169-8145-dcab-f67f.ngrok.io/payment/end_page/',
+        'OrderResultURL': 'https://c860-2001-b011-4009-1702-fdd5-a261-8bc8-4f8.ngrok.io/payment/end_page/',
         'NeedExtraPaidInfo': 'Y',
         'DeviceSource': '',
         'IgnorePayment': '',
